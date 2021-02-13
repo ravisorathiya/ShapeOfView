@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:padding="2dp"
+    app:cardCornerRadius="24sp"
+    app:layout_constraintCircleRadius="@dimen/cardview_compat_inset_shadow">
+
+    <Button
+        android:id="@+id/btn_font_changer"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:shadowRadius="15"
+        android:text="@string/font_style"
+        android:textAppearance="@font/bold"
+        android:textSize="20sp"
+        android:textStyle="bold|italic|normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.cardview.widget.CardView>

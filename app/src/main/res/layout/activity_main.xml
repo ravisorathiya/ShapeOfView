@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="0.95"
+    android:background="@drawable/backimage"
+    android:orientation="vertical"
+    android:padding="2dp"
+    tools:context=".MainActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#69452C"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+    <FrameLayout
+        android:id="@+id/fram_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+   <!-- <TextView
+        android:id="@+id/text_wish"
+        android:layout_width="399dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/welcome"
+        android:visibility="gone"
+        android:textAlignment="center"
+        android:textColor="#758283"
+        android:textSize="36sp"
+        android:textStyle="italic|bold" />-->
+
+   <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="12dp"
+            android:padding="8dp"
+            app:cardCornerRadius="20sp"
+
+            app:strokeColor="@color/colorPrimaryDark"
+            app:strokeWidth="6dp">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:requiresFadingEdge="vertical"
+                app:tabGravity="fill"
+                app:tabIndicatorColor="?attr/colorAccent"
+                app:tabIndicatorGravity="stretch"
+                app:tabMaxWidth="0dp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@android:color/white"
+                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                app:tabTextColor="?attr/colorPrimary">
+
+            </com.google.android.material.tabs.TabLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pager_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+-->
+    <include
+        layout="@layout/sub_tab_layout"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
+
+</LinearLayout>

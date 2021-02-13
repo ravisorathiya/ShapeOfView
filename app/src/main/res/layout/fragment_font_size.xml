@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:padding="2dp"
+    app:cardCornerRadius="24sp"
+
+    app:layout_constraintCircleRadius="@dimen/cardview_compat_inset_shadow">
+
+
+    <LinearLayout
+        android:background="@drawable/bgg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:alpha="0.9"
+        android:padding="3dp">
+
+        <SeekBar
+            android:id="@+id/seekBarHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/font__style"
+            android:padding="2dp" />
+
+        <SeekBar
+            android:id="@+id/seekBarVerticle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/progress_fill"
+            android:layout_margin="4dp"
+            android:padding="2dp" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

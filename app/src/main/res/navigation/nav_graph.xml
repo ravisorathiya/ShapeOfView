@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/fontStyleFragment">
+
+    <fragment
+        android:id="@+id/fontStyleFragment"
+        android:name="com.example.shapeolorpp.ui.FontStyleFragment"
+        android:label="Font Style"
+        tools:layout="@layout/fragment_font_style" />
+    <fragment
+        android:id="@+id/fontSizeChangeFragment"
+        android:name="com.example.shapeolorpp.ui.FontSizeChangeFragment"
+        android:label="Font Size Chnager"
+        tools:layout="@layout/fragment_font_size" />
+    <fragment
+        android:id="@+id/linearColorFragment"
+        android:name="com.example.shapeolorpp.ui.LinearColorFragment"
+        android:label="Linear Color"
+        tools:layout="@layout/fragement_font_linear" />
+    <fragment
+        android:id="@+id/radialColorFragment"
+        android:name="com.example.shapeolorpp.ui.RadialColorFragment"
+        android:label="Radial Color"
+        tools:layout="@layout/fragment_font_radial" />
+</navigation>
