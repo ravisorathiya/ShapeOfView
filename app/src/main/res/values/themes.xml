@@ -19,4 +19,16 @@
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">4dp</item>
     </style>
+
+    <style name="MySeekBar1" parent="Widget.AppCompat.SeekBar">
+        <item name="android:progressBackgroundTint" tools:targetApi="lollipop">#3DBE29</item>
+        <item name="android:progressTint" tools:targetApi="lollipop">#E21717</item>
+        <item name="android:colorControlActivated" tools:targetApi="lollipop">#EB4D4B</item>
+    </style>
+
+    <style name="MySeekBar2" parent="Widget.AppCompat.SeekBar">
+        <item name="android:progressBackgroundTint" tools:targetApi="lollipop">#E9E4E6</item>
+        <item name="android:progressTint" tools:targetApi="lollipop">#E21717</item>
+        <item name="android:colorControlActivated" tools:targetApi="lollipop">#EB4D4B</item>
+    </style>
 </resources>

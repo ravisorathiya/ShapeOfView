@@ -62,9 +62,6 @@ class MainActivity : AppCompatActivity() {
 
         navHostSetup()
 
-
-
-
     }
 
     private fun navHostSetup() {

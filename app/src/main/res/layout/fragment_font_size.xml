@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
     android:padding="2dp"
@@ -11,28 +12,102 @@
 
 
     <LinearLayout
-        android:background="@drawable/bgg"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="80dp"
+        android:background="@drawable/bgg"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:alpha="0.9"
-        android:padding="3dp">
+        android:background="@drawable/bgg"
+        android:orientation="horizontal"
+        android:padding="3dp"
+        android:weightSum="12">
+
+        <ImageButton
+
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+            app:srcCompat="@drawable/ic_textsize"
+            tools:ignore="VectorDrawableCompat" />
 
         <SeekBar
-            android:id="@+id/seekBarHorizontal"
-            android:layout_width="match_parent"
+            android:id="@+id/seek_font_sizing"
+            style="@style/MySeekBar1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:background="@drawable/font__style"
+            android:layout_weight="4"
             android:padding="2dp" />
 
+        <ImageButton
+
+            android:layout_width="5dp"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+            app:srcCompat="@drawable/ic_opacity"
+            tools:ignore="VectorDrawableCompat" />
+
         <SeekBar
-            android:id="@+id/seekBarVerticle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/progress_fill"
+            android:id="@+id/seekbar_opacity"
+            style="@style/MySeekBar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="4dp"
+            android:layout_weight="4"
             android:padding="2dp" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:alpha="0.9"
+        android:background="@drawable/bgg"
+        android:orientation="horizontal"
+        android:padding="3dp"
+        android:weightSum="12">
+
+        <ImageButton
+
+            android:layout_width="10dp"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+            app:srcCompat="@drawable/ic_space"
+            tools:ignore="VectorDrawableCompat" />
+
+        <SeekBar
+            android:id="@+id/seekbar_letter_spacing"
+            style="@style/MySeekBar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="4"
+            android:padding="2dp" />
+
+        <ImageButton
+
+            android:layout_width="5dp"
+            android:layout_height="30dp"
+            android:layout_weight="2"
+            app:srcCompat="@drawable/ic_text"
+            tools:ignore="VectorDrawableCompat" />
+
+        <SeekBar
+            android:id="@+id/seekbar_line_spacing"
+            style="@style/MySeekBar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="4"
+            android:padding="2dp" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+
 </androidx.cardview.widget.CardView>

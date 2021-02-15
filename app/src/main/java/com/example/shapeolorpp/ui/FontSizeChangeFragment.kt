@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.utills.onSeekerChange
@@ -18,40 +17,43 @@ class FontSizeChangeFragment : Fragment(R.layout.fragment_font_size) {
     private val TAG = "FontSizeChangeFragment"
     lateinit var textWishView: TextView
 
-    @RequiresApi(Build.VERSION_CODES.O)
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        val seekBarHorizontal = view.findViewById<SeekBar>(R.id.seekBarHorizontal)
-        val seekBarVerticle = view.findViewById<SeekBar>(R.id.seekBarVerticle)
+        val seekerFontSizing = view.findViewById<SeekBar>(R.id.seek_font_sizing)
+        val seekerOpacity = view.findViewById<SeekBar>(R.id.seekbar_opacity)
+        val seekerLetterSpacing = view.findViewById<SeekBar>(R.id.seekbar_letter_spacing)
+        val seekerLineSpace = view.findViewById<SeekBar>(R.id.seekbar_line_spacing)
 
         textWishView = requireActivity().findViewById(R.id.text_wish)
 
-
-        seekBarHorizontal.onSeekerChange {
-            textWishView.text
-//            textWishView.textSize = it
-            textWishView.setPadding(0,16,0,0)
-            textWishView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,it)
-//            textWishView.setAutoSizeTextTypeUniformWithConfiguration(
-//                1, 17, 1, TypedValue.COMPLEX_UNIT_DIP);
+        // change size of font
+        seekerFontSizing.onSeekerChange {
+            textWishView.setTextSize(
+                TypedValue.COMPLEX_UNIT_PX, it
+            )
         }
 
-        seekBarVerticle.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-
+        // change opacity color of text
+        seekerOpacity.onSeekerChange {
+            val backgroundOpacity: Int = it.toInt() * 0x01000000
+            textWishView.apply {
+                setTextColor(backgroundOpacity + 0xffffff)
+                setTextColor(backgroundOpacity + 0xffffff)
+                setTextColor(backgroundOpacity + 0xffffff)
             }
+        }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-            }
+        // latter spacing
+        seekerLetterSpacing.onSeekerChange {
+            textWishView.letterSpacing = it / 100
+        }
 
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-            }
-        })
-
-
+        // line spacing
+        seekerLineSpace.onSeekerChange {
+            textWishView.setLineSpacing(it / 50, it / 50)
+        }
     }
-
-
 }
+
