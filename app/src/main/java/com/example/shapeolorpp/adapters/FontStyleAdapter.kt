@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
-import com.example.shapeolorpp.data.FontStyleData
+import com.example.shapeolorpp.models.FontStyleData
 
 class FontStyleAdapter(
     private val onFontClick : OnFontStyleClick

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.LinearAdapter
-import com.example.shapeolorpp.data.LinearData
+import com.example.shapeolorpp.models.LinearData
 import com.example.shapeolorpp.utills.LinearColor
 
 class LinearColorFragment : Fragment(R.layout.fragement_font_linear),

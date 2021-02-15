@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.FontStyleAdapter
-import com.example.shapeolorpp.data.FontStyleData
+import com.example.shapeolorpp.models.FontStyleData
 
 
 class FontStyleFragment(

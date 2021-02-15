@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Shader
 import android.graphics.drawable.GradientDrawable
-import com.example.shapeolorpp.data.LinearData
+import com.example.shapeolorpp.models.LinearData
 
 object LinearColor {
 

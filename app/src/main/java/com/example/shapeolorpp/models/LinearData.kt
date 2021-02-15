@@ -1,4 +1,4 @@
-package com.example.shapeolorpp.data
+package com.example.shapeolorpp.models
 
 import android.graphics.Shader
 import android.graphics.drawable.GradientDrawable
