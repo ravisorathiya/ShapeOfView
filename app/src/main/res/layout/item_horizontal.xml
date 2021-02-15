@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:padding="2dp"
+    app:cardCornerRadius="24sp"
+    app:layout_constraintCircleRadius="@dimen/cardview_compat_inset_shadow">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="3dp">
+
+        <com.github.florent37.shapeofview.shapes.CircleView
+            android:id="@+id/circle_body"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="4dp"
+            android:elevation="4dp"
+            app:shape_circle_borderColor="@android:color/black"
+            app:shape_circle_borderWidth="2dp">
+
+            <ImageView
+                android:id="@+id/body_color_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/gradeint_circular" />
+
+        </com.github.florent37.shapeofview.shapes.CircleView>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

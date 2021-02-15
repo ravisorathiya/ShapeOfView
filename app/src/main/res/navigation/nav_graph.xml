@@ -25,4 +25,12 @@
         android:name="com.example.shapeolorpp.ui.RadialColorFragment"
         android:label="Radial Color"
         tools:layout="@layout/fragment_font_radial" />
+    <fragment
+        android:id="@+id/bodyColorFragment"
+        android:name="com.example.shapeolorpp.ui.BodyHorizotalFragment"
+        android:label="BodyColorFragment" />
+    <fragment
+        android:id="@+id/bodyColorVerticleFragment"
+        android:name="com.example.shapeolorpp.ui.BodyVentricleFragment"
+        android:label="BodyColorVerticleFragment" />
 </navigation>

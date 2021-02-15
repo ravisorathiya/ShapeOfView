@@ -19,3 +19,20 @@ inline fun SeekBar.onSeekerChange(crossinline  listener:(Float)->Unit) {
     })
 
 }
+
+
+////if (view is ConstraintLayout) {
+//    val gradientDrawable = GradientDrawable(
+//        GradientDrawable.Orientation.LEFT_RIGHT,
+//        intArrayOf(
+//            firstColor,
+//            secondColor
+//        )
+//    );
+//    gradientDrawable.cornerRadius = 0f
+//
+//
+//    view.background = gradientDrawable
+////                        view.setBackgroundColor(color)
+//}
+

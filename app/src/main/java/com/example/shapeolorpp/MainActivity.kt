@@ -25,10 +25,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.shapeolorpp.adapters.ViewpagerAdapter
-import com.example.shapeolorpp.ui.FontSizeChangeFragment
-import com.example.shapeolorpp.ui.FontStyleFragment
-import com.example.shapeolorpp.ui.LinearColorFragment
-import com.example.shapeolorpp.ui.RadialColorFragment
+import com.example.shapeolorpp.ui.*
 import com.example.shapeolorpp.utills.Constanse
 import com.github.siyamed.shapeimageview.RoundedImageView
 import com.google.android.material.tabs.TabLayout
@@ -58,6 +55,7 @@ class MainActivity : AppCompatActivity() {
 
         setupFrameLayout()
         setupTabViewPager()
+
         moveTextAgroundScreen()
 
         navHostSetup()
@@ -75,7 +73,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.fontStyleFragment,
                 R.id.fontSizeChangeFragment,
                 R.id.linearColorFragment,
-                R.id.radialColorFragment
+                R.id.radialColorFragment,
+                R.id.bodyColorFragment
             )
         )
 
@@ -113,7 +112,9 @@ class MainActivity : AppCompatActivity() {
             FontStyleFragment(),
             FontSizeChangeFragment(),
             LinearColorFragment(),
-            RadialColorFragment()
+            RadialColorFragment(),
+            BodyHorizotalFragment(),
+            BodyVentricleFragment()
         )
 
 
@@ -132,6 +133,8 @@ class MainActivity : AppCompatActivity() {
                 1 -> tab.setIcon(R.drawable.ic_textsize)
                 2 -> tab.setIcon(R.drawable.ic_linear)
                 3 -> tab.setIcon(R.drawable.ic_greadient)
+                4 -> tab.setIcon(R.drawable.ic_horizontal)
+                5 -> tab.setIcon(R.drawable.ic_verticle)
             }
             viewPager2Tab.setCurrentItem(tab.position, true)
         }.attach()
