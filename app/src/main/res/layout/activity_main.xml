@@ -22,67 +22,18 @@
     <FrameLayout
         android:id="@+id/fram_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" >
+
+    </FrameLayout>
 
 
-   <!-- <TextView
-        android:id="@+id/text_wish"
-        android:layout_width="399dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="@string/welcome"
-        android:visibility="gone"
-        android:textAlignment="center"
-        android:textColor="#758283"
-        android:textSize="36sp"
-        android:textStyle="italic|bold" />-->
 
-   <!-- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="220dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="12dp"
-            android:padding="8dp"
-            app:cardCornerRadius="20sp"
-
-            app:strokeColor="@color/colorPrimaryDark"
-            app:strokeWidth="6dp">
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:requiresFadingEdge="vertical"
-                app:tabGravity="fill"
-                app:tabIndicatorColor="?attr/colorAccent"
-                app:tabIndicatorGravity="stretch"
-                app:tabMaxWidth="0dp"
-                app:tabMode="fixed"
-                app:tabSelectedTextColor="@android:color/white"
-                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
-                app:tabTextColor="?attr/colorPrimary">
-
-            </com.google.android.material.tabs.TabLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/pager_activity"
+        <include layout="@layout/sub_tab_layout"
+            android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            />
 
 
-    </LinearLayout>
--->
-    <include
-        layout="@layout/sub_tab_layout"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"

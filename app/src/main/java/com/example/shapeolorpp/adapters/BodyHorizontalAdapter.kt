@@ -41,7 +41,7 @@ class BodyHorizontalAdapter(
             imagecircle.setOnClickListener {
                 val position = adapterPosition
                 if (position!=RecyclerView.NO_POSITION){
-                    listenBody.changeBodycolor(position)
+                    listenBody.changeBodyColor(position)
                 }
             }
 
@@ -59,7 +59,7 @@ class BodyHorizontalAdapter(
     }
 
     interface OnBodyColorClick {
-        fun changeBodycolor(position: Int)
+        fun changeBodyColor(position: Int)
     }
 
 }

@@ -8,6 +8,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.Menu
+import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
@@ -18,10 +20,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.shapeolorpp.adapters.ViewpagerAdapter
@@ -73,10 +77,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.fontStyleFragment,
                 R.id.fontSizeChangeFragment,
                 R.id.linearColorFragment,
-                R.id.radialColorFragment,
-                R.id.bodyColorFragment
+                R.id.radialColorFragment
+
             )
         )
+
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -90,14 +95,14 @@ class MainActivity : AppCompatActivity() {
 
             if (motionEvent.action == MotionEvent.ACTION_MOVE) {
 
-                view.y = motionEvent.rawY - view.height/2
-                view.x = motionEvent.rawX - view.width/2
+                view.y = motionEvent.rawY - view.height / 2
+                view.x = motionEvent.rawX - view.width / 2
             }
 
             true
 
         })
-        textWishView =findViewById(R.id.text_wish)
+        textWishView = findViewById(R.id.text_wish)
         textWishView.setOnTouchListener(listener)
 
     }
@@ -108,13 +113,13 @@ class MainActivity : AppCompatActivity() {
         val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
         val viewPager2Tab = findViewById<ViewPager2>(R.id.pager_activity)
 
-        val fragmentList = arrayListOf<Fragment>(
+        val fragmentList = arrayListOf(
             FontStyleFragment(),
             FontSizeChangeFragment(),
             LinearColorFragment(),
-            RadialColorFragment(),
-            BodyHorizotalFragment(),
-            BodyVentricleFragment()
+            RadialColorFragment()
+
+
         )
 
 
@@ -133,8 +138,6 @@ class MainActivity : AppCompatActivity() {
                 1 -> tab.setIcon(R.drawable.ic_textsize)
                 2 -> tab.setIcon(R.drawable.ic_linear)
                 3 -> tab.setIcon(R.drawable.ic_greadient)
-                4 -> tab.setIcon(R.drawable.ic_horizontal)
-                5 -> tab.setIcon(R.drawable.ic_verticle)
             }
             viewPager2Tab.setCurrentItem(tab.position, true)
         }.attach()
@@ -145,6 +148,16 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_item, menu)
+        return true
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 
 

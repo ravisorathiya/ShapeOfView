@@ -25,12 +25,15 @@
         android:name="com.example.shapeolorpp.ui.RadialColorFragment"
         android:label="Radial Color"
         tools:layout="@layout/fragment_font_radial" />
-    <fragment
-        android:id="@+id/bodyColorFragment"
-        android:name="com.example.shapeolorpp.ui.BodyHorizotalFragment"
-        android:label="BodyColorFragment" />
-    <fragment
-        android:id="@+id/bodyColorVerticleFragment"
-        android:name="com.example.shapeolorpp.ui.BodyVentricleFragment"
-        android:label="BodyColorVerticleFragment" />
+    <dialog
+        android:id="@+id/bottomShitFragment"
+        android:name="com.example.shapeolorpp.ui.BottomShitHorizontalFragment"
+        tools:layout="@layout/fragment_bodyhorizontal_color"
+        android:label="BottomShitFragment" />
+    <dialog
+        android:id="@+id/bottomShitVerticleFragment"
+        android:name="com.example.shapeolorpp.ui.BottomShitVerticleFragment"
+        tools:layout="@layout/fragment_bodyverticle_color"
+
+    android:label="BottomShitVerticleFragment" />
 </navigation>
