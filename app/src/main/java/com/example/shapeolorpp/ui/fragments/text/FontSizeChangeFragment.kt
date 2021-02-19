@@ -1,4 +1,4 @@
-package com.example.shapeolorpp.ui.fragments
+package com.example.shapeolorpp.ui.fragments.text
 
 import android.os.Build
 import android.os.Bundle

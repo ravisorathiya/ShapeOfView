@@ -1,13 +1,15 @@
 package com.example.shapeolorpp.utills
 
+import android.content.Context
 import android.widget.SeekBar
+import android.widget.Toast
 
 
-inline fun SeekBar.onSeekerChange(crossinline  listener:(Float)->Unit) {
+inline fun SeekBar.onSeekerChange(crossinline listener: (Float) -> Unit) {
 
     this.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
         override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-           listener(progress.toFloat())
+            listener(progress.toFloat())
         }
 
         override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -20,19 +22,8 @@ inline fun SeekBar.onSeekerChange(crossinline  listener:(Float)->Unit) {
 
 }
 
+fun Context.toast(message: Any) =
+    Toast.makeText(applicationContext, message.toString(), Toast.LENGTH_SHORT).show()
 
-////if (view is ConstraintLayout) {
-//    val gradientDrawable = GradientDrawable(
-//        GradientDrawable.Orientation.LEFT_RIGHT,
-//        intArrayOf(
-//            firstColor,
-//            secondColor
-//        )
-//    );
-//    gradientDrawable.cornerRadius = 0f
-//
-//
-//    view.background = gradientDrawable
-////                        view.setBackgroundColor(color)
-//}
+
 

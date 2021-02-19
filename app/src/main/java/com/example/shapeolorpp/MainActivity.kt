@@ -14,6 +14,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -21,15 +22,15 @@ import androidx.core.view.forEach
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.*
+import com.example.shapeolorpp.databinding.ActivityMainBinding
 import com.example.shapeolorpp.utills.Constanse
 import com.github.siyamed.shapeimageview.RoundedImageView
 
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
 
     // widgets
     private lateinit var roundedImageView: RoundedImageView
@@ -45,23 +46,19 @@ class MainActivity : AppCompatActivity() {
     lateinit var appBarConfiguration: AppBarConfiguration
 
 
+    @RequiresApi(Build.VERSION_CODES.P)
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         setupFrameLayout()
         moveTextAroundScreen()
         navHostSetup()
-        openBottomSheetDialogFragment()
 
 
-    }
 
-    private fun openBottomSheetDialogFragment() {
-        framView.setOnClickListener {
-            navController.navigate(R.id.editorBottomsheetFragment)
-        }
     }
 
     private fun navHostSetup() {
@@ -77,34 +74,26 @@ class MainActivity : AppCompatActivity() {
                 R.id.linearColorFragment,
                 R.id.radialColorFragment,
                 R.id.colorFragment
-
-
             )
         )
 
+        binding.bootomNav.setupWithNavController(navController)
+        setSupportActionBar(binding.toolbar)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
+    @RequiresApi(Build.VERSION_CODES.P)
     @SuppressLint("ClickableViewAccessibility")
     private fun moveTextAroundScreen() {
-
         val listener = View.OnTouchListener(function = { view, motionEvent ->
 
             if (motionEvent.action == MotionEvent.ACTION_MOVE) {
-                view.x = motionEvent.rawX - 2
-                view.y = motionEvent.rawY - 2
-
+                view.x = motionEvent.rawX - view.width / 2.0f
+                view.y = motionEvent.rawY - view.height / 0.5f
             }
-
-
-
             true
-
         })
-
         textWishView = framView.findViewById(R.id.text_wish)
         textWishView.setOnTouchListener(listener)
 
@@ -123,6 +112,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 

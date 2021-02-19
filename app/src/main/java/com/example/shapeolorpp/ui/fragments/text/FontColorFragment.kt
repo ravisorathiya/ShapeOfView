@@ -1,10 +1,10 @@
-package com.example.shapeolorpp.ui.fragments
+package com.example.shapeolorpp.ui.fragments.text
 
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.shapeofview.data.RadialData
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.LinearAdapter
@@ -14,7 +14,7 @@ import com.example.shapeolorpp.models.LinearData
 import com.example.shapeolorpp.utills.LinearColor
 import com.example.shapeolorpp.utills.RadialColor
 
-class ColorFragment : Fragment(R.layout.fragment_colors), LinearAdapter.OnLinearSetColor,
+class FontColorFragment : Fragment(R.layout.fragment_colors), LinearAdapter.OnLinearSetColor,
     RadialAdapter.OnRadialSetListener {
 
     private lateinit var binding: FragmentColorsBinding
@@ -28,6 +28,7 @@ class ColorFragment : Fragment(R.layout.fragment_colors), LinearAdapter.OnLinear
 
 
         binding.imageLinear.setOnClickListener {
+
             setupRecyclerViewLinear()
         }
         binding.imageGreadint.setOnClickListener {
@@ -51,10 +52,10 @@ class ColorFragment : Fragment(R.layout.fragment_colors), LinearAdapter.OnLinear
 
     private fun setupRecyclerViewGradient() {
         binding.rvColor.apply {
-            val adapterRadial = RadialAdapter(this@ColorFragment)
+            val adapterRadial = RadialAdapter(this@FontColorFragment)
             adapterRadial.submitList(listRadialColor)
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
-            // layoutManager = GridLayoutManager(context, 6)
+//            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
+             layoutManager = GridLayoutManager(context, 6)
             setHasFixedSize(true)
 
             adapter = adapterRadial
@@ -68,8 +69,8 @@ class ColorFragment : Fragment(R.layout.fragment_colors), LinearAdapter.OnLinear
 
 
             linerAdapter.submitList(listOfLinearColor)
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
-//            layoutManager = GridLayoutManager(context, 6)
+//            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
+            layoutManager = GridLayoutManager(context, 6)
 //            layoutManager = GridLayoutManager(activity, 5, GridLayoutManager.VERTICAL, false)
 //            layoutManager = StaggeredGridLayoutManager(5,StaggeredGridLayoutManager.VERTICAL)
             setHasFixedSize(true)

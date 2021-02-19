@@ -1,38 +1,25 @@
-package com.example.shapeolorpp.ui.bottomshits
+package com.example.shapeolorpp.ui.fragments.bodycolor
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.BodyVerticleAdapter
 import com.example.shapeolorpp.models.BodyVerticleData
 import com.example.shapeolorpp.utills.BodyVerticle
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class BottomShitVerticleFragment : BottomSheetDialogFragment() ,  BodyVerticleAdapter.VerticleColorSet {
+class BodyVerticleFragment : Fragment(R.layout.dailog_bodyverticle_color),
+    BodyVerticleAdapter.VerticleColorSet {
     private lateinit var listVerticleColor: ArrayList<BodyVerticleData>
     lateinit var viewLayout: ConstraintLayout
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.dailog_bodyverticle_color,container,false)
-    }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupRecylcleBodyColor()
     }
-
 
     private fun setupRecylcleBodyColor() {
         val rvVerticle = view?.findViewById<RecyclerView>(R.id.rv_verticle_body_color)

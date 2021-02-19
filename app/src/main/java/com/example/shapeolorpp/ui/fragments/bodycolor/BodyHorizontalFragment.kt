@@ -1,31 +1,21 @@
-package com.example.shapeolorpp.ui.bottomshits
+package com.example.shapeolorpp.ui.fragments.bodycolor
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.BodyHorizontalAdapter
 import com.example.shapeolorpp.models.BodyHorizontalData
 import com.example.shapeolorpp.utills.BodyHorizontal
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class BottomShitHorizontalFragment : BottomSheetDialogFragment(),
+class BodyHorizontalFragment : Fragment(R.layout.dialog_bodyhorizontal_color),
     BodyHorizontalAdapter.OnBodyColorClick {
+
     private lateinit var listBodyColor: ArrayList<BodyHorizontalData>
-
-
     lateinit var viewLayout: ConstraintLayout
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.dialog_bodyhorizontal_color, container, false)
-    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,12 +25,17 @@ class BottomShitHorizontalFragment : BottomSheetDialogFragment(),
 
     private fun setupRecylcleBodyColor() {
         val adapterBodyColor = BodyHorizontalAdapter(this)
-        val rvBody = view?.findViewById<RecyclerView>(R.id.rv_back_color)
         listBodyColor = BodyHorizontal.colorCollector()
-        rvBody?.setHasFixedSize(true)
-        rvBody?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
         adapterBodyColor.submitList(listBodyColor)
-        rvBody?.adapter = adapterBodyColor
+
+        val rvBody = view?.findViewById<RecyclerView>(R.id.rv_back_color)
+
+        rvBody?.apply {
+            setHasFixedSize(true)
+             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
+//            layoutManager = GridLayoutManager(context,6)
+            adapter = adapterBodyColor
+        }
     }
 
     override fun changeBodyColor(position: Int) {

@@ -7,32 +7,32 @@
 
     <fragment
         android:id="@+id/fontStyleFragment"
-        android:name="com.example.shapeolorpp.ui.fragments.FontStyleFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.text.FontStyleFragment"
         android:label="Font Style"
         tools:layout="@layout/fragment_font_style" />
     <fragment
         android:id="@+id/fontSizeChangeFragment"
-        android:name="com.example.shapeolorpp.ui.fragments.FontSizeChangeFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.text.FontSizeChangeFragment"
         android:label="Font Size Chnager"
         tools:layout="@layout/fragment_font_size" />
     <fragment
         android:id="@+id/linearColorFragment"
-        android:name="com.example.shapeolorpp.ui.fragments.LinearColorFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.text.LinearColorFragment"
         android:label="Linear Color"
         tools:layout="@layout/fragement_font_linear" />
     <fragment
         android:id="@+id/radialColorFragment"
-        android:name="com.example.shapeolorpp.ui.fragments.RadialColorFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.text.RadialColorFragment"
         android:label="Radial Color"
         tools:layout="@layout/fragment_font_radial" />
     <dialog
         android:id="@+id/bottomShitFragment"
-        android:name="com.example.shapeolorpp.ui.bottomshits.BottomShitHorizontalFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.bodycolor.BodyHorizontalFragment"
         android:label="BottomShitFragment"
         tools:layout="@layout/dialog_bodyhorizontal_color" />
     <dialog
         android:id="@+id/bottomShitVerticleFragment"
-        android:name="com.example.shapeolorpp.ui.bottomshits.BottomShitVerticleFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.bodycolor.BodyVerticleFragment"
         android:label="BottomShitVerticleFragment"
         tools:layout="@layout/dailog_bodyverticle_color" />
     <dialog
@@ -42,9 +42,24 @@
         tools:layout="@layout/dialog_root_shit" />
     <fragment
         android:id="@+id/colorFragment"
-        android:name="com.example.shapeolorpp.ui.fragments.ColorFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.text.FontColorFragment"
         android:label="ColorFragment"
         tools:layout="@layout/fragment_colors" />
+    <fragment
+        android:id="@+id/fontSpacerFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.text.FontSpacerFragment"
+        android:label="FontSpacerFragment"
+        tools:layout="@layout/fragment_fontspacer"/>
+    <dialog
+        android:id="@+id/bodyColorFragment"
+        android:name="com.example.shapeolorpp.ui.BodyColorFragment"
+        android:label="BodyColorFragment"
+        tools:layout="@layout/bottomshit_body"/>
+    <dialog
+        android:id="@+id/stickerFragment"
+        android:name="com.example.shapeolorpp.ui.StickerFragment"
+        android:label="StickerFragment"
+        tools:layout="@layout/sticker_fragment"/>
 
 
 </navigation>

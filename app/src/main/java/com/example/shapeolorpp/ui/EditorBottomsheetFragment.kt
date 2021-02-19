@@ -4,15 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager2.widget.ViewPager2
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.ViewpagerAdapter
 import com.example.shapeolorpp.databinding.DialogRootShitBinding
-import com.example.shapeolorpp.ui.fragments.*
+import com.example.shapeolorpp.ui.fragments.text.*
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.dialog_root_shit.view.*
 
 class EditorBottomsheetFragment : BottomSheetDialogFragment() {
 
@@ -41,9 +38,10 @@ class EditorBottomsheetFragment : BottomSheetDialogFragment() {
         val fragmentList = arrayListOf(
             FontStyleFragment(),
             FontSizeChangeFragment(),
+            FontSpacerFragment(),
             LinearColorFragment(),
             RadialColorFragment(),
-            ColorFragment()
+            FontColorFragment()
         )
 
         val pagerAdapter = ViewpagerAdapter(
@@ -58,9 +56,10 @@ class EditorBottomsheetFragment : BottomSheetDialogFragment() {
             when (position) {
                 0 -> tab.setIcon(R.drawable.ic_font)
                 1 -> tab.setIcon(R.drawable.ic_textsize)
-                2 -> tab.setIcon(R.drawable.ic_linear)
-                3 -> tab.setIcon(R.drawable.ic_greadient)
+                2 -> tab.setIcon(R.drawable.ic_spacer)
+                3 -> tab.setIcon(R.drawable.ic_linear)
                 4 -> tab.setIcon(R.drawable.ic_greadient)
+                5 -> tab.setIcon(R.drawable.ic_colors)
             }
             binding.viewPagertFragment.setCurrentItem(tab.position, true)
         }.attach()

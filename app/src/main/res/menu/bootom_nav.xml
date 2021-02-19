@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/editorBottomsheetFragment"
+        android:icon="@drawable/ic_edit"
+        android:title="Text Edit" />
+
+    <item
+        android:id="@+id/bodyColorFragment"
+        android:icon="@drawable/ic_colors"
+        android:title="Body" />
+
+    <item
+        android:id="@+id/stickerFragment"
+        android:icon="@drawable/ic_stickers"
+        android:title="Stickers" />
+</menu>
