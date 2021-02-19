@@ -1,4 +1,4 @@
-package com.example.shapeolorpp.ui
+package com.example.shapeolorpp.ui.bottomshits
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,9 +13,9 @@ import com.example.shapeolorpp.models.BodyHorizontalData
 import com.example.shapeolorpp.utills.BodyHorizontal
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class BottomShitHorizontalFragment : BottomSheetDialogFragment()  , BodyHorizontalAdapter.OnBodyColorClick {
-    private lateinit var listBodyColor : ArrayList<BodyHorizontalData>
-
+class BottomShitHorizontalFragment : BottomSheetDialogFragment(),
+    BodyHorizontalAdapter.OnBodyColorClick {
+    private lateinit var listBodyColor: ArrayList<BodyHorizontalData>
 
 
     lateinit var viewLayout: ConstraintLayout
@@ -24,10 +24,7 @@ class BottomShitHorizontalFragment : BottomSheetDialogFragment()  , BodyHorizont
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_bodyhorizontal_color,container,false)
-
-
-
+        return inflater.inflate(R.layout.dialog_bodyhorizontal_color, container, false)
     }
 
 
@@ -41,7 +38,7 @@ class BottomShitHorizontalFragment : BottomSheetDialogFragment()  , BodyHorizont
         val rvBody = view?.findViewById<RecyclerView>(R.id.rv_back_color)
         listBodyColor = BodyHorizontal.colorCollector()
         rvBody?.setHasFixedSize(true)
-        rvBody?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,true)
+        rvBody?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
         adapterBodyColor.submitList(listBodyColor)
         rvBody?.adapter = adapterBodyColor
     }
@@ -50,7 +47,7 @@ class BottomShitHorizontalFragment : BottomSheetDialogFragment()  , BodyHorizont
 
         viewLayout = requireActivity().findViewById(R.id.const_layout)
         listBodyColor.forEachIndexed { index, backColorData ->
-            if (position == index){
+            if (position == index) {
                 val data = backColorData.radialDrawable
                 viewLayout.background = data
             }

@@ -7,33 +7,44 @@
 
     <fragment
         android:id="@+id/fontStyleFragment"
-        android:name="com.example.shapeolorpp.ui.FontStyleFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.FontStyleFragment"
         android:label="Font Style"
         tools:layout="@layout/fragment_font_style" />
     <fragment
         android:id="@+id/fontSizeChangeFragment"
-        android:name="com.example.shapeolorpp.ui.FontSizeChangeFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.FontSizeChangeFragment"
         android:label="Font Size Chnager"
         tools:layout="@layout/fragment_font_size" />
     <fragment
         android:id="@+id/linearColorFragment"
-        android:name="com.example.shapeolorpp.ui.LinearColorFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.LinearColorFragment"
         android:label="Linear Color"
         tools:layout="@layout/fragement_font_linear" />
     <fragment
         android:id="@+id/radialColorFragment"
-        android:name="com.example.shapeolorpp.ui.RadialColorFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.RadialColorFragment"
         android:label="Radial Color"
         tools:layout="@layout/fragment_font_radial" />
     <dialog
         android:id="@+id/bottomShitFragment"
-        android:name="com.example.shapeolorpp.ui.BottomShitHorizontalFragment"
-        tools:layout="@layout/fragment_bodyhorizontal_color"
-        android:label="BottomShitFragment" />
+        android:name="com.example.shapeolorpp.ui.bottomshits.BottomShitHorizontalFragment"
+        android:label="BottomShitFragment"
+        tools:layout="@layout/dialog_bodyhorizontal_color" />
     <dialog
         android:id="@+id/bottomShitVerticleFragment"
-        android:name="com.example.shapeolorpp.ui.BottomShitVerticleFragment"
-        tools:layout="@layout/fragment_bodyverticle_color"
+        android:name="com.example.shapeolorpp.ui.bottomshits.BottomShitVerticleFragment"
+        android:label="BottomShitVerticleFragment"
+        tools:layout="@layout/dailog_bodyverticle_color" />
+    <dialog
+        android:id="@+id/editorBottomsheetFragment"
+        android:name="com.example.shapeolorpp.ui.EditorBottomsheetFragment"
+        android:label="EditorBottomsheetFragment"
+        tools:layout="@layout/dialog_root_shit" />
+    <fragment
+        android:id="@+id/colorFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.ColorFragment"
+        android:label="ColorFragment"
+        tools:layout="@layout/fragment_colors" />
 
-    android:label="BottomShitVerticleFragment" />
+
 </navigation>

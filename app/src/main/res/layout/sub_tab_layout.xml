@@ -1,51 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_constraintVertical_weight="1"
+        app:cardCornerRadius="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/view_pagert_fragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        app:strokeColor="@color/colorPrimaryDark"
+        app:strokeWidth="6dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="240dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="12dp"
-            android:padding="8dp"
-            app:cardCornerRadius="20sp"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:requiresFadingEdge="vertical"
+            app:tabGravity="fill"
 
-            app:strokeColor="@color/colorPrimaryDark"
-            app:strokeWidth="6dp">
+            app:tabIndicatorColor="?attr/colorAccent"
+            app:tabIndicatorGravity="stretch"
+            app:tabMaxWidth="0dp"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@android:color/white"
+            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+            app:tabTextColor="?attr/colorPrimary">
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tab_layout"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:requiresFadingEdge="vertical"
-                app:tabGravity="fill"
-                app:tabIndicatorColor="?attr/colorAccent"
-                app:tabIndicatorGravity="stretch"
-                app:tabMaxWidth="0dp"
-                app:tabMode="fixed"
-                app:tabSelectedTextColor="@android:color/white"
-                app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
-                app:tabTextColor="?attr/colorPrimary">
+        </com.google.android.material.tabs.TabLayout>
 
-            </com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-        </com.google.android.material.card.MaterialCardView>
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/pager_activity"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pagert_fragment"
+        android:layout_width="423dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/materialCardView"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
 
 
-    </LinearLayout>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

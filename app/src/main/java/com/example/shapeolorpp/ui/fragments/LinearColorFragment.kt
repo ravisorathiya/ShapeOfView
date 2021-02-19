@@ -1,15 +1,16 @@
-package com.example.shapeolorpp.ui
+package com.example.shapeolorpp.ui.fragments
 
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.LinearAdapter
 import com.example.shapeolorpp.models.LinearData
 import com.example.shapeolorpp.utills.LinearColor
+
 
 class LinearColorFragment : Fragment(R.layout.fragement_font_linear),
     LinearAdapter.OnLinearSetColor {
@@ -43,7 +44,8 @@ class LinearColorFragment : Fragment(R.layout.fragement_font_linear),
         linearColorRecyclerView.apply {
 
             linerAdapter.submitList(listOfLinearColor)
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
+//            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
+            layoutManager = GridLayoutManager(context, 6)
             setHasFixedSize(true)
             adapter = linerAdapter
         }

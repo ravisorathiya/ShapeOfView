@@ -1,113 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
+    android:orientation="vertical"
     android:padding="2dp"
-    app:cardCornerRadius="24sp"
 
+    app:cardCornerRadius="24sp"
     app:layout_constraintCircleRadius="@dimen/cardview_compat_inset_shadow">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@drawable/bgg"
-        android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:alpha="0.9"
-        android:background="@drawable/bgg"
-        android:orientation="horizontal"
-        android:padding="3dp"
-        android:weightSum="12">
+    <ImageButton
 
-        <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton13"
+        app:layout_constraintEnd_toStartOf="@+id/seek_font_sizing"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_textsize"
+        tools:ignore="VectorDrawableCompat"
+        tools:layout_conversion_absoluteHeight="30dp"
+        tools:layout_conversion_absoluteWidth="57dp" />
 
-            android:layout_width="10dp"
-            android:layout_height="30dp"
-            android:layout_weight="2"
-            app:srcCompat="@drawable/ic_textsize"
-            tools:ignore="VectorDrawableCompat" />
+    <SeekBar
+        android:id="@+id/seek_font_sizing"
+        style="@style/MySeekBar1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:progressDrawable="@drawable/seek_bar"
+        android:thumb="@drawable/seek_thumb"
+        app:layout_constraintBottom_toTopOf="@+id/seekbar_letter_spacing"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toEndOf="@+id/imageButton7"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_absoluteHeight="24dp"
+        tools:layout_conversion_absoluteWidth="135dp" />
 
-        <SeekBar
-            android:id="@+id/seek_font_sizing"
-            style="@style/MySeekBar1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="4"
-            android:padding="2dp" />
+    <ImageButton
 
-        <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton14"
+        app:layout_constraintEnd_toStartOf="@+id/seekbar_opacity"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/seek_font_sizing"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_opacity"
+        tools:ignore="VectorDrawableCompat"
+        tools:layout_conversion_absoluteHeight="30dp"
+        tools:layout_conversion_absoluteWidth="52dp" />
 
-            android:layout_width="5dp"
-            android:layout_height="30dp"
-            android:layout_weight="2"
-            app:srcCompat="@drawable/ic_opacity"
-            tools:ignore="VectorDrawableCompat" />
-
-        <SeekBar
-            android:id="@+id/seekbar_opacity"
-            style="@style/MySeekBar2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="4"
-            android:padding="2dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:alpha="0.9"
-        android:background="@drawable/bgg"
-        android:orientation="horizontal"
-        android:padding="3dp"
-        android:weightSum="12">
-
-        <ImageButton
-
-            android:layout_width="10dp"
-            android:layout_height="30dp"
-            android:layout_weight="2"
-            app:srcCompat="@drawable/ic_space"
-            tools:ignore="VectorDrawableCompat" />
-
-        <SeekBar
-            android:id="@+id/seekbar_letter_spacing"
-            style="@style/MySeekBar2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="4"
-            android:padding="2dp" />
-
-        <ImageButton
-
-            android:layout_width="5dp"
-            android:layout_height="30dp"
-            android:layout_weight="2"
-            app:srcCompat="@drawable/ic_text"
-            tools:ignore="VectorDrawableCompat" />
-
-        <SeekBar
-            android:id="@+id/seekbar_line_spacing"
-            style="@style/MySeekBar1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_weight="4"
-            android:padding="2dp" />
-
-    </LinearLayout>
-
-    </LinearLayout>
+    <SeekBar
+        android:id="@+id/seekbar_opacity"
+        style="@style/MySeekBar2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:progressDrawable="@drawable/seek_bar"
+        android:thumb="@drawable/seek_thumb"
+        app:layout_constraintBottom_toTopOf="@+id/seekbar_line_spacing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toEndOf="@+id/imageButton8"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_absoluteHeight="24dp"
+        tools:layout_conversion_absoluteWidth="135dp" />
 
 
+    <ImageButton
 
-</androidx.cardview.widget.CardView>
+        android:id="@+id/imageButton13"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/seekbar_letter_spacing"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+        android:src="@drawable/ic_space"
+        tools:ignore="VectorDrawableCompat"
+        tools:layout_conversion_absoluteHeight="30dp"
+        tools:layout_conversion_absoluteWidth="57dp" />
+
+    <SeekBar
+        android:id="@+id/seekbar_letter_spacing"
+        style="@style/MySeekBar2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:progressDrawable="@drawable/seek_bar"
+        android:thumb="@drawable/seek_thumb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton14"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toEndOf="@+id/imageButton13"
+        app:layout_constraintTop_toBottomOf="@+id/seek_font_sizing"
+        tools:layout_conversion_absoluteHeight="24dp"
+        tools:layout_conversion_absoluteWidth="135dp" />
+
+    <ImageButton
+
+        android:id="@+id/imageButton14"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/seekbar_line_spacing"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/seekbar_letter_spacing"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton8"
+        android:src="@drawable/ic_text"
+        tools:ignore="VectorDrawableCompat"
+        tools:layout_conversion_absoluteHeight="30dp"
+        tools:layout_conversion_absoluteWidth="52dp" />
+
+    <SeekBar
+        android:id="@+id/seekbar_line_spacing"
+        style="@style/MySeekBar1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:progressDrawable="@drawable/seek_bar"
+        android:thumb="@drawable/seek_thumb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintStart_toEndOf="@+id/imageButton14"
+        app:layout_constraintTop_toBottomOf="@+id/seekbar_opacity"
+        tools:layout_conversion_absoluteHeight="24dp"
+        tools:layout_conversion_absoluteWidth="135dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

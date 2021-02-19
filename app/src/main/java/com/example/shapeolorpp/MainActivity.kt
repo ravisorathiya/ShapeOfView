@@ -18,38 +18,31 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.forEach
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.viewpager2.widget.ViewPager2
-import com.example.shapeolorpp.adapters.ViewpagerAdapter
-import com.example.shapeolorpp.ui.*
 import com.example.shapeolorpp.utills.Constanse
 import com.github.siyamed.shapeimageview.RoundedImageView
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 
 
 class MainActivity : AppCompatActivity() {
 
-
-    private lateinit var frameLayout: FrameLayout
-
+    // widgets
     private lateinit var roundedImageView: RoundedImageView
     private lateinit var imageURI: Uri
+    lateinit var textWishView: TextView
 
     // view for frame-layout
-    private lateinit var view: View
+    private lateinit var framView: View
+    private lateinit var frameLayout: FrameLayout
 
+    // navigation components
     private lateinit var navController: NavController
     lateinit var appBarConfiguration: AppBarConfiguration
-    lateinit var textWishView: TextView
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -58,12 +51,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setupFrameLayout()
-        setupTabViewPager()
-
-        moveTextAgroundScreen()
-
+        moveTextAroundScreen()
         navHostSetup()
+        openBottomSheetDialogFragment()
 
+
+    }
+
+    private fun openBottomSheetDialogFragment() {
+        framView.setOnClickListener {
+            navController.navigate(R.id.editorBottomsheetFragment)
+        }
     }
 
     private fun navHostSetup() {
@@ -77,7 +75,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.fontStyleFragment,
                 R.id.fontSizeChangeFragment,
                 R.id.linearColorFragment,
-                R.id.radialColorFragment
+                R.id.radialColorFragment,
+                R.id.colorFragment
+
 
             )
         )
@@ -89,61 +89,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun moveTextAgroundScreen() {
+    private fun moveTextAroundScreen() {
 
         val listener = View.OnTouchListener(function = { view, motionEvent ->
 
             if (motionEvent.action == MotionEvent.ACTION_MOVE) {
+                view.x = motionEvent.rawX - 2
+                view.y = motionEvent.rawY - 2
 
-                view.y = motionEvent.rawY - view.height / 2
-                view.x = motionEvent.rawX - view.width / 2
             }
+
+
 
             true
 
         })
-        textWishView = findViewById(R.id.text_wish)
+
+        textWishView = framView.findViewById(R.id.text_wish)
         textWishView.setOnTouchListener(listener)
 
     }
 
-    private fun setupTabViewPager() {
-
-
-        val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
-        val viewPager2Tab = findViewById<ViewPager2>(R.id.pager_activity)
-
-        val fragmentList = arrayListOf(
-            FontStyleFragment(),
-            FontSizeChangeFragment(),
-            LinearColorFragment(),
-            RadialColorFragment()
-
-
-        )
-
-
-        val pagerAdapter = ViewpagerAdapter(
-            fragmentList,
-            supportFragmentManager,
-            lifecycle
-        )
-
-        viewPager2Tab.adapter = pagerAdapter
-
-        // to attaching with viewpager and add icons to tab
-        TabLayoutMediator(tabLayout, viewPager2Tab) { tab, position ->
-            when (position) {
-                0 -> tab.setIcon(R.drawable.ic_font)
-                1 -> tab.setIcon(R.drawable.ic_textsize)
-                2 -> tab.setIcon(R.drawable.ic_linear)
-                3 -> tab.setIcon(R.drawable.ic_greadient)
-            }
-            viewPager2Tab.setCurrentItem(tab.position, true)
-        }.attach()
-
-
-    }
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
@@ -163,13 +129,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupFrameLayout() {
         frameLayout = findViewById(R.id.fram_layout)
-        view = layoutInflater.inflate(
+        framView = layoutInflater.inflate(
             R.layout.frame_item,
             frameLayout,
             false
         )
 
-        val rootLayout = view
+        val rootLayout = framView
         if (rootLayout is ConstraintLayout) {
 
             rootLayout.forEach {
@@ -187,7 +153,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        frameLayout.addView(view)
+        frameLayout.addView(framView)
 
 
     }

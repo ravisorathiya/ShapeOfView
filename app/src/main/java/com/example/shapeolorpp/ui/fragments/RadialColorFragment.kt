@@ -1,10 +1,10 @@
-package com.example.shapeolorpp.ui
+package com.example.shapeolorpp.ui.fragments
 
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeofview.data.RadialData
 import com.example.shapeolorpp.R
@@ -43,7 +43,7 @@ class RadialColorFragment
 
             val adapterRadial = RadialAdapter(this@RadialColorFragment)
             adapterRadial.submitList(listRadialColor)
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
+            layoutManager = GridLayoutManager(context,6)
             setHasFixedSize(true)
 
             adapter = adapterRadial

@@ -1,4 +1,4 @@
-package com.example.shapeolorpp.ui
+package com.example.shapeolorpp.ui.fragments
 
 import android.os.Build
 import android.os.Bundle
@@ -32,6 +32,7 @@ class FontSizeChangeFragment : Fragment(R.layout.fragment_font_size) {
         seekerFontSizing.onSeekerChange {
             textWishView.setTextSize(
                 TypedValue.COMPLEX_UNIT_PX, it
+
             )
         }
 

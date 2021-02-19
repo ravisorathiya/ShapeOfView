@@ -1,4 +1,4 @@
-package com.example.shapeolorpp.ui
+package com.example.shapeolorpp.ui.bottomshits
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,7 +23,7 @@ class BottomShitVerticleFragment : BottomSheetDialogFragment() ,  BodyVerticleAd
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_bodyverticle_color,container,false)
+        return inflater.inflate(R.layout.dailog_bodyverticle_color,container,false)
     }
 
 
