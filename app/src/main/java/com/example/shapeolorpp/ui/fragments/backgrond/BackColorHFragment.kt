@@ -1,4 +1,4 @@
-package com.example.shapeolorpp.ui.fragments.bodycolor
+package com.example.shapeolorpp.ui.fragments.backgrond
 
 import android.os.Bundle
 import android.view.View
@@ -7,13 +7,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
-import com.example.shapeolorpp.adapters.BodyHorizontalAdapter
+import com.example.shapeolorpp.adapters.BackColorHAdapter
 import com.example.shapeolorpp.utills.BodyHorizontal
 
-class BodyHorizontalFragment : Fragment(R.layout.dialog_bodyhorizontal_color),
-    BodyHorizontalAdapter.OnBodyColorClick {
+class BackColorHFragment : Fragment(R.layout.dialog_bodyhorizontal_color),
+    BackColorHAdapter.OnBodyColorClick {
 
-    private lateinit var listBodyColor: ArrayList<com.example.shapeolorpp.models.BackgrondHorizontal>
+    private lateinit var listBodyColor: ArrayList<com.example.shapeolorpp.models.BackColorH>
     lateinit var viewLayout: ConstraintLayout
 
 
@@ -23,7 +23,7 @@ class BodyHorizontalFragment : Fragment(R.layout.dialog_bodyhorizontal_color),
     }
 
     private fun setupRecylcleBodyColor() {
-        val adapterBodyColor = BodyHorizontalAdapter(this)
+        val adapterBodyColor = BackColorHAdapter(this)
         listBodyColor = BodyHorizontal.colorCollector()
         adapterBodyColor.submitList(listBodyColor)
 

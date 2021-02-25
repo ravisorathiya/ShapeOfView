@@ -12,7 +12,7 @@ import com.example.shapeolorpp.R
 import com.example.shapeolorpp.utills.onSeekerChange
 
 
-class FontSizeChangeFragment : Fragment(R.layout.fragment_font_size) {
+class FontSizeFragment : Fragment(R.layout.fragment_font_size) {
 
     private val TAG = "FontSizeChangeFragment"
     lateinit var textWishView: TextView

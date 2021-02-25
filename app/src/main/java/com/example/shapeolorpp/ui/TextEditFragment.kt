@@ -12,7 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-class EditorBottomSheetFragment : BottomSheetDialogFragment() {
+class TextEditFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding: DialogRootShitBinding
 
@@ -49,10 +49,10 @@ class EditorBottomSheetFragment : BottomSheetDialogFragment() {
     private fun setupTabViewPager() {
         val fragmentList = arrayListOf(
             FontStyleFragment(),
-            FontSizeChangeFragment(),
+            FontSizeFragment(),
             FontSpacerFragment(),
             LinearColorFragment(),
-            RadialColorFragment(),
+            RadialFragment(),
             FontColorFragment()
         )
 

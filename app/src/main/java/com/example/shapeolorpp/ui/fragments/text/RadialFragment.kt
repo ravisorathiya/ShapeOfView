@@ -11,7 +11,7 @@ import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.RadialAdapter
 import com.example.shapeolorpp.utills.RadialColor
 
-class RadialColorFragment
+class RadialFragment
     : Fragment(R.layout.fragment_font_radial),
     RadialAdapter.OnRadialSetListener {
 

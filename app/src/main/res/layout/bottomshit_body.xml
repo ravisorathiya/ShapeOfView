@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".ui.BodyColorFragment">
+    tools:context=".ui.BackColorFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/material"

@@ -9,13 +9,13 @@ import android.widget.FrameLayout
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.ViewpagerAdapter
 import com.example.shapeolorpp.databinding.BottomshitBodyBinding
-import com.example.shapeolorpp.ui.fragments.bodycolor.BodyHorizontalFragment
-import com.example.shapeolorpp.ui.fragments.bodycolor.BodyVerticleFragment
+import com.example.shapeolorpp.ui.fragments.backgrond.BackColorHFragment
+import com.example.shapeolorpp.ui.fragments.backgrond.BackColorVFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 
-class BodyColorFragment : BottomSheetDialogFragment() {
+class BackColorFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding: BottomshitBodyBinding
 
@@ -53,8 +53,8 @@ class BodyColorFragment : BottomSheetDialogFragment() {
     private fun setupTabViewPager() {
 
         val fragmentList = arrayListOf(
-            BodyHorizontalFragment(),
-            BodyVerticleFragment()
+            BackColorHFragment(),
+            BackColorVFragment()
         )
 
         val pagerAdapter = ViewpagerAdapter(

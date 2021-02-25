@@ -1,4 +1,4 @@
-package com.example.shapeolorpp.ui.fragments.bodycolor
+package com.example.shapeolorpp.ui.fragments.backgrond
 
 import android.os.Bundle
 import android.view.View
@@ -7,13 +7,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
-import com.example.shapeolorpp.adapters.BodyVerticleAdapter
-import com.example.shapeolorpp.models.BackgrondVerticle
+import com.example.shapeolorpp.adapters.BackColorVAdapter
+import com.example.shapeolorpp.models.BackColorV
 import com.example.shapeolorpp.utills.BodyVerticle
 
-class BodyVerticleFragment : Fragment(R.layout.dailog_bodyverticle_color),
-    BodyVerticleAdapter.VerticleColorSet {
-    private lateinit var listVentricleColor: ArrayList<BackgrondVerticle>
+class BackColorVFragment : Fragment(R.layout.dailog_bodyverticle_color),
+    BackColorVAdapter.VerticleColorSet {
+    private lateinit var listVentricleColor: ArrayList<BackColorV>
     lateinit var viewLayout: ConstraintLayout
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -23,10 +23,10 @@ class BodyVerticleFragment : Fragment(R.layout.dailog_bodyverticle_color),
 
     private fun setupRecylcleBodyColor() {
         val rvVentricle = view?.findViewById<RecyclerView>(R.id.rv_verticle_body_color)
-        val ventricleAdapter = BodyVerticleAdapter(this)
+        val ventricleAdapter = BackColorVAdapter(this)
         rvVentricle?.setHasFixedSize(true)
         listVentricleColor = BodyVerticle.verticleColor()
-        BodyVerticleAdapter(this)
+        BackColorVAdapter(this)
         ventricleAdapter.submitList(listVentricleColor)
         rvVentricle?.layoutManager = GridLayoutManager(context, 6)
         rvVentricle?.adapter = ventricleAdapter

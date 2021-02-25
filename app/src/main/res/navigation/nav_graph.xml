@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_font_style" />
     <fragment
         android:id="@+id/fontSizeChangeFragment"
-        android:name="com.example.shapeolorpp.ui.fragments.text.FontSizeChangeFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.text.FontSizeFragment"
         android:label="Font Size Chnager"
         tools:layout="@layout/fragment_font_size" />
     <fragment
@@ -22,22 +22,22 @@
         tools:layout="@layout/fragement_font_linear" />
     <fragment
         android:id="@+id/radialColorFragment"
-        android:name="com.example.shapeolorpp.ui.fragments.text.RadialColorFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.text.RadialFragment"
         android:label="Radial Color"
         tools:layout="@layout/fragment_font_radial" />
     <dialog
         android:id="@+id/bottomShitFragment"
-        android:name="com.example.shapeolorpp.ui.fragments.bodycolor.BodyHorizontalFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.backgrond.BackColorHFragment"
         android:label="BottomShitFragment"
         tools:layout="@layout/dialog_bodyhorizontal_color" />
     <dialog
         android:id="@+id/bottomShitVerticleFragment"
-        android:name="com.example.shapeolorpp.ui.fragments.bodycolor.BodyVerticleFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.backgrond.BackColorVFragment"
         android:label="BottomShitVerticleFragment"
         tools:layout="@layout/dailog_bodyverticle_color" />
     <dialog
         android:id="@+id/editorBottomsheetFragment"
-        android:name="com.example.shapeolorpp.ui.EditorBottomSheetFragment"
+        android:name="com.example.shapeolorpp.ui.TextEditFragment"
         android:label="EditorBottomsheetFragment"
         tools:layout="@layout/dialog_root_shit" />
     <fragment
@@ -52,7 +52,7 @@
         tools:layout="@layout/fragment_fontspacer"/>
     <dialog
         android:id="@+id/bodyColorFragment"
-        android:name="com.example.shapeolorpp.ui.BodyColorFragment"
+        android:name="com.example.shapeolorpp.ui.BackColorFragment"
         android:label="BodyColorFragment"
         tools:layout="@layout/bottomshit_body"/>
     <dialog
