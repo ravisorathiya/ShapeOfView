@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
-import com.example.shapeolorpp.models.BodyHorizontalData
+import com.example.shapeolorpp.models.BackgrondHorizontal
 
 class BodyHorizontalAdapter(
     private val listenBody: OnBodyColorClick
-) : ListAdapter<BodyHorizontalData, BodyHorizontalAdapter.BodyHorizontalColorHolder>(DifferCallback()) {
+) : ListAdapter<BackgrondHorizontal, BodyHorizontalAdapter.BodyHorizontalColorHolder>(DifferCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BodyHorizontalColorHolder {
         val view =
@@ -49,12 +49,12 @@ class BodyHorizontalAdapter(
 
     }
 
-    class DifferCallback : DiffUtil.ItemCallback<BodyHorizontalData>() {
+    class DifferCallback : DiffUtil.ItemCallback<BackgrondHorizontal>() {
 
-        override fun areItemsTheSame(oldItem: BodyHorizontalData, newItem: BodyHorizontalData) =
+        override fun areItemsTheSame(oldItem: BackgrondHorizontal, newItem: BackgrondHorizontal) =
             oldItem.circleColor == newItem.circleColor
 
-        override fun areContentsTheSame(oldItem: BodyHorizontalData, newItem: BodyHorizontalData) =
+        override fun areContentsTheSame(oldItem: BackgrondHorizontal, newItem: BackgrondHorizontal) =
             oldItem == newItem
     }
 

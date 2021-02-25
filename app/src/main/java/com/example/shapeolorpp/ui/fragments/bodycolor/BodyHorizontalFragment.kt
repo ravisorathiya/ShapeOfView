@@ -8,13 +8,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.BodyHorizontalAdapter
-import com.example.shapeolorpp.models.BodyHorizontalData
 import com.example.shapeolorpp.utills.BodyHorizontal
 
 class BodyHorizontalFragment : Fragment(R.layout.dialog_bodyhorizontal_color),
     BodyHorizontalAdapter.OnBodyColorClick {
 
-    private lateinit var listBodyColor: ArrayList<BodyHorizontalData>
+    private lateinit var listBodyColor: ArrayList<com.example.shapeolorpp.models.BackgrondHorizontal>
     lateinit var viewLayout: ConstraintLayout
 
 

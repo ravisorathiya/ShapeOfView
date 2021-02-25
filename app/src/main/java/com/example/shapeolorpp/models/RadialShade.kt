@@ -3,7 +3,7 @@ package com.example.shapeofview.data
 import android.graphics.Shader
 import android.graphics.drawable.GradientDrawable
 
-data class RadialData(
+data class RadialShade(
 
     val fontRadialShader: Shader?,
     val radialDrawable: GradientDrawable?,

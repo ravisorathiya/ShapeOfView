@@ -5,12 +5,12 @@ import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.shapeofview.data.RadialData
+import com.example.shapeofview.data.RadialShade
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.LinearAdapter
 import com.example.shapeolorpp.adapters.RadialAdapter
 import com.example.shapeolorpp.databinding.FragmentColorsBinding
-import com.example.shapeolorpp.models.LinearData
+import com.example.shapeolorpp.models.LinearShade
 import com.example.shapeolorpp.utills.LinearColor
 import com.example.shapeolorpp.utills.RadialColor
 
@@ -19,8 +19,8 @@ class FontColorFragment : Fragment(R.layout.fragment_colors), LinearAdapter.OnLi
 
     private lateinit var binding: FragmentColorsBinding
     private lateinit var textWishView: TextView
-    private lateinit var listOfLinearColor: ArrayList<LinearData>
-    private lateinit var listRadialColor: ArrayList<RadialData>
+    private lateinit var listOfLinearColor: ArrayList<LinearShade>
+    private lateinit var listRadialColor: ArrayList<RadialShade>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

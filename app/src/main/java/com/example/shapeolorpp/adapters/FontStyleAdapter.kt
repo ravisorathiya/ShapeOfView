@@ -8,18 +8,18 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
-import com.example.shapeolorpp.models.FontStyleData
+import com.example.shapeolorpp.models.FontStyles
 
 class FontStyleAdapter(
     private val onFontClick : OnFontStyleClick
 ): RecyclerView.Adapter<FontStyleAdapter.FontStyleHolder>()  {
 
 
-    private val differCallback = object : DiffUtil.ItemCallback<FontStyleData>(){
-        override fun areItemsTheSame(oldItem: FontStyleData, newItem: FontStyleData):
+    private val differCallback = object : DiffUtil.ItemCallback<FontStyles>(){
+        override fun areItemsTheSame(oldItem: FontStyles, newItem: FontStyles):
                 Boolean = oldItem.font === newItem.font
 
-        override fun areContentsTheSame(oldItem: FontStyleData, newItem: FontStyleData):
+        override fun areContentsTheSame(oldItem: FontStyles, newItem: FontStyles):
                 Boolean = oldItem == newItem
     }
 

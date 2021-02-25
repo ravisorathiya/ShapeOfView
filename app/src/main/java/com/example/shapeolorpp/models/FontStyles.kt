@@ -1,3 +1,3 @@
 package com.example.shapeolorpp.models
 
-data class FontStyleData(val font:Int?)
+data class FontStyles(val font:Int?)

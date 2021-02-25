@@ -8,12 +8,12 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shapeofview.data.RadialData
+import com.example.shapeofview.data.RadialShade
 import com.example.shapeolorpp.R
 
 class RadialAdapter(
     private val radialListener: OnRadialSetListener
-) : ListAdapter<RadialData, RadialAdapter.RadialHolder>(DifferCallback()) {
+) : ListAdapter<RadialShade, RadialAdapter.RadialHolder>(DifferCallback()) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RadialHolder {
@@ -54,16 +54,16 @@ class RadialAdapter(
 
     }
 
-    class DifferCallback : DiffUtil.ItemCallback<RadialData>() {
+    class DifferCallback : DiffUtil.ItemCallback<RadialShade>() {
         override fun areItemsTheSame(
-            oldItem: RadialData,
-            newItem: RadialData
+            oldItem: RadialShade,
+            newItem: RadialShade
         ) = oldItem == newItem
 
 
         override fun areContentsTheSame(
-            oldItem: RadialData,
-            newItem: RadialData
+            oldItem: RadialShade,
+            newItem: RadialShade
         ) = oldItem == newItem
     }
 

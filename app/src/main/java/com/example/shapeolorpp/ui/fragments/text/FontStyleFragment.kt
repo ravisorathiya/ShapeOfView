@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.FontStyleAdapter
-import com.example.shapeolorpp.models.FontStyleData
+import com.example.shapeolorpp.models.FontStyles
 
 
 class FontStyleFragment(
@@ -22,7 +22,7 @@ class FontStyleFragment(
     private val TAG = "FontStyleFragment"
 
     // widgets
-    lateinit var fontStyleList: ArrayList<FontStyleData>
+    lateinit var fontStyleList: ArrayList<FontStyles>
     lateinit var textWishView: TextView
 
 
@@ -39,16 +39,16 @@ class FontStyleFragment(
 
         val recycle = view?.findViewById<RecyclerView>(R.id.recyclerview_fonr_style)
         fontStyleList = arrayListOf(
-            FontStyleData(R.font.bold),
-            FontStyleData(R.font.bold_italic),
-            FontStyleData(R.font.extra_bold_italic),
-            FontStyleData(R.font.extra_bold_sabs),
-            FontStyleData(R.font.light_italic),
-            FontStyleData(R.font.sans_italics),
-            FontStyleData(R.font.sans_light),
-            FontStyleData(R.font.sans_reglular),
-            FontStyleData(R.font.semi_bold),
-            FontStyleData(R.font.semi_bold_italic)
+            FontStyles(R.font.bold),
+            FontStyles(R.font.bold_italic),
+            FontStyles(R.font.extra_bold_italic),
+            FontStyles(R.font.extra_bold_sabs),
+            FontStyles(R.font.light_italic),
+            FontStyles(R.font.sans_italics),
+            FontStyles(R.font.sans_light),
+            FontStyles(R.font.sans_reglular),
+            FontStyles(R.font.semi_bold),
+            FontStyles(R.font.semi_bold_italic)
         )
 
         adapter.differ.submitList(fontStyleList)

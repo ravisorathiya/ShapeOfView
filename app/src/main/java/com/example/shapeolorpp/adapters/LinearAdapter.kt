@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
-import com.example.shapeolorpp.models.LinearData
+import com.example.shapeolorpp.models.LinearShade
 
 
 class LinearAdapter(
     private val onColorSet: OnLinearSetColor
-) : ListAdapter<LinearData, LinearAdapter.LinearHolder>(DiffCallback()) {
+) : ListAdapter<LinearShade, LinearAdapter.LinearHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LinearHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_linear, parent, false)
@@ -54,15 +54,15 @@ class LinearAdapter(
     }
 
 
-    class DiffCallback : DiffUtil.ItemCallback<LinearData>() {
+    class DiffCallback : DiffUtil.ItemCallback<LinearShade>() {
         override fun areItemsTheSame(
-            oldItem: LinearData,
-            newItem: LinearData
+            oldItem: LinearShade,
+            newItem: LinearShade
         ) = oldItem == newItem
 
         override fun areContentsTheSame(
-            oldItem: LinearData,
-            newItem: LinearData
+            oldItem: LinearShade,
+            newItem: LinearShade
         ) = oldItem == newItem
 
     }

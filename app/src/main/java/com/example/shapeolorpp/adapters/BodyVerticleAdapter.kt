@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
-import com.example.shapeolorpp.models.BodyVerticleData
+import com.example.shapeolorpp.models.BackgrondVerticle
 
 class BodyVerticleAdapter(
     private val verticleColorlist: VerticleColorSet
-) : ListAdapter<BodyVerticleData, BodyVerticleAdapter.BodyColorVerticleHolder>(
+) : ListAdapter<BackgrondVerticle, BodyVerticleAdapter.BodyColorVerticleHolder>(
     DifferCallback()
 ) {
 
@@ -50,15 +50,15 @@ class BodyVerticleAdapter(
 
     }
 
-    class DifferCallback : DiffUtil.ItemCallback<BodyVerticleData>() {
+    class DifferCallback : DiffUtil.ItemCallback<BackgrondVerticle>() {
         override fun areItemsTheSame(
-            oldItem: BodyVerticleData,
-            newItem: BodyVerticleData
+            oldItem: BackgrondVerticle,
+            newItem: BackgrondVerticle
         ) = oldItem.circleColor == newItem.circleColor
 
         override fun areContentsTheSame(
-            oldItem: BodyVerticleData,
-            newItem: BodyVerticleData
+            oldItem: BackgrondVerticle,
+            newItem: BackgrondVerticle
         ) = oldItem == newItem
     }
 

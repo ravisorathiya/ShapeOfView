@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.BodyVerticleAdapter
-import com.example.shapeolorpp.models.BodyVerticleData
+import com.example.shapeolorpp.models.BackgrondVerticle
 import com.example.shapeolorpp.utills.BodyVerticle
 
 class BodyVerticleFragment : Fragment(R.layout.dailog_bodyverticle_color),
     BodyVerticleAdapter.VerticleColorSet {
-    private lateinit var listVentricleColor: ArrayList<BodyVerticleData>
+    private lateinit var listVentricleColor: ArrayList<BackgrondVerticle>
     lateinit var viewLayout: ConstraintLayout
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.LinearAdapter
-import com.example.shapeolorpp.models.LinearData
+import com.example.shapeolorpp.models.LinearShade
 import com.example.shapeolorpp.utills.LinearColor
 
 
@@ -19,7 +19,7 @@ class LinearColorFragment : Fragment(R.layout.fragement_font_linear),
 
     private lateinit var linearColorRecyclerView: RecyclerView
     private lateinit var textWishView: TextView
-    private lateinit var listOfLinearColor: ArrayList<LinearData>
+    private lateinit var listOfLinearColor: ArrayList<LinearShade>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

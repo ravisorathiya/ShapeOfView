@@ -4,16 +4,16 @@ import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Shader
 import android.graphics.drawable.GradientDrawable
-import com.example.shapeolorpp.models.LinearData
+import com.example.shapeolorpp.models.LinearShade
 
 object LinearColor {
 
 
-    fun colorCollector(width: Float, size: Float): ArrayList<LinearData> {
+    fun colorCollector(width: Float, size: Float): ArrayList<LinearShade> {
 
 
         val colorCollection = arrayListOf(
-            LinearData(
+            LinearShade(
 
                 LinearGradient(
                     width, 0.0f, width, size,
@@ -29,7 +29,7 @@ object LinearColor {
                 ),
                 Color.parseColor("#6EC72D")
             ),
-            LinearData(
+            LinearShade(
                 LinearGradient(
                     width, 0.0f, width, size,
                     Color.parseColor("#758283"),
@@ -43,7 +43,7 @@ object LinearColor {
                     )
                 ),
                 Color.parseColor("#E03B8B")
-            ), LinearData(
+            ), LinearShade(
                 LinearGradient(
                     width, 0.0f, width, size,
                     Color.parseColor("#03C6C7"),
@@ -57,7 +57,7 @@ object LinearColor {
                     )
                 ),
                 Color.parseColor("#FF6263")
-            ), LinearData(
+            ), LinearShade(
                 LinearGradient(
                     width, 0.0f, width, size,
                     Color.parseColor("#50DBB4"),
@@ -71,7 +71,7 @@ object LinearColor {
                     )
                 ),
                 Color.parseColor("#EDC126")
-            ), LinearData(
+            ), LinearShade(
                 LinearGradient(
                     width, 0.0f, width, size,
                     Color.parseColor("#6EC72D"),
@@ -85,7 +85,7 @@ object LinearColor {
                     )
                 ),
                 Color.parseColor("#EDC126")
-            ), LinearData(
+            ), LinearShade(
                 LinearGradient(
                     width, 0.0f, width, size,
                     Color.parseColor("#758283"),
@@ -99,7 +99,7 @@ object LinearColor {
                     )
                 ),
                 Color.parseColor("#E03B8B")
-            ), LinearData(
+            ), LinearShade(
                 LinearGradient(
                     width, 0.0f, width, size,
                     Color.parseColor("#6A1B4D"),
@@ -113,7 +113,7 @@ object LinearColor {
                     )
                 ),
                 Color.parseColor("#03C6C7")
-            ), LinearData(
+            ), LinearShade(
                 LinearGradient(
                     width, 0.0f, width, size,
                     Color.parseColor("#F4CE6A"),
@@ -127,7 +127,7 @@ object LinearColor {
                     )
                 ),
                 Color.parseColor("#50DBB4")
-            ), LinearData(
+            ), LinearShade(
                 LinearGradient(
                     width, 0.0f, width, size,
                     Color.parseColor("#5A20CB"),
@@ -141,7 +141,7 @@ object LinearColor {
                     )
                 ),
                 Color.parseColor("#03C6C7")
-            ), LinearData(
+            ), LinearShade(
                 LinearGradient(
                     width, 0.0f, width, size,
                     Color.parseColor("#B4161B"),
@@ -155,7 +155,7 @@ object LinearColor {
                     )
                 ),
                 Color.parseColor("#8D3DAF")
-            ), LinearData(
+            ), LinearShade(
                 LinearGradient(
                     width, 0.0f, width, size,
                     Color.parseColor("#3DBE29"),
@@ -169,7 +169,7 @@ object LinearColor {
                     )
                 ),
                 Color.parseColor("#EF5354")
-            ), LinearData(
+            ), LinearShade(
                 LinearGradient(
                     width, 0.0f, width, size,
                     Color.parseColor("#5DA3FA"),
@@ -183,7 +183,7 @@ object LinearColor {
                     )
                 ),
                 Color.parseColor("#6EC72D")
-            ), LinearData(
+            ), LinearShade(
                 LinearGradient(
                     width, 0.0f, width, size,
                     Color.parseColor("#33FF33"),

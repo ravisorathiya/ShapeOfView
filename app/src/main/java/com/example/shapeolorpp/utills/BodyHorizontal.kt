@@ -2,14 +2,14 @@ package com.example.shapeolorpp.utills
 
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
-import com.example.shapeolorpp.models.BodyHorizontalData
+import com.example.shapeolorpp.models.BackgrondHorizontal
 
 object BodyHorizontal {
 
 
-    fun colorCollector(): ArrayList<BodyHorizontalData> {
+    fun colorCollector(): ArrayList<BackgrondHorizontal> {
         val colorCollection = arrayListOf(
-            BodyHorizontalData(
+            BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#F4BE2C"),
@@ -17,7 +17,7 @@ object BodyHorizontal {
                     )
                 ),
                 Color.parseColor("#6EC72D")
-            ),BodyHorizontalData(
+            ), BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#758283"),
@@ -25,7 +25,7 @@ object BodyHorizontal {
                     )
                 ),
                 Color.parseColor("#E03B8B")
-            ),BodyHorizontalData(
+            ), BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#03C6C7"),
@@ -33,7 +33,7 @@ object BodyHorizontal {
                     )
                 ),
                 Color.parseColor("#FF6263")
-            ),BodyHorizontalData(
+            ), BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#50DBB4"),
@@ -41,7 +41,7 @@ object BodyHorizontal {
                     )
                 ),
                 Color.parseColor("#EDC126")
-            ),BodyHorizontalData(
+            ), BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#6EC72D"),
@@ -49,7 +49,7 @@ object BodyHorizontal {
                     )
                 ),
                 Color.parseColor("#EDC126")
-            ),BodyHorizontalData(
+            ), BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#758283"),
@@ -57,7 +57,7 @@ object BodyHorizontal {
                     )
                 ),
                 Color.parseColor("#E03B8B")
-            ),BodyHorizontalData(
+            ), BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#6A1B4D"),
@@ -65,7 +65,7 @@ object BodyHorizontal {
                     )
                 ),
                 Color.parseColor("#03C6C7")
-            ),BodyHorizontalData(
+            ), BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#F4CE6A"),
@@ -73,7 +73,7 @@ object BodyHorizontal {
                     )
                 ),
                 Color.parseColor("#50DBB4")
-            ),BodyHorizontalData(
+            ), BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#5A20CB"),
@@ -81,7 +81,7 @@ object BodyHorizontal {
                     )
                 ),
                 Color.parseColor("#03C6C7")
-            ),BodyHorizontalData(
+            ), BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#B4161B"),
@@ -89,7 +89,7 @@ object BodyHorizontal {
                     )
                 ),
                 Color.parseColor("#8D3DAF")
-            ),BodyHorizontalData(
+            ), BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#3DBE29"),
@@ -97,7 +97,7 @@ object BodyHorizontal {
                     )
                 ),
                 Color.parseColor("#EF5354")
-            ),BodyHorizontalData(
+            ), BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#5DA3FA"),
@@ -105,7 +105,7 @@ object BodyHorizontal {
                     )
                 ),
                 Color.parseColor("#6EC72D")
-            ),BodyHorizontalData(
+            ), BackgrondHorizontal(
                 GradientDrawable(
                     GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(
                         Color.parseColor("#33FF33"),

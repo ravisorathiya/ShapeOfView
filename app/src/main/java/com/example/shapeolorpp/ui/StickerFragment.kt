@@ -1,10 +1,12 @@
 package com.example.shapeolorpp.ui
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -12,9 +14,11 @@ import com.example.shapeolorpp.MainActivity
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.StickerAdapter
 import com.example.shapeolorpp.databinding.FragmentStickerBinding
-import com.example.shapeolorpp.models.StickerData
+import com.example.shapeolorpp.models.Sticker
 import com.example.shapeolorpp.utills.CanvasImages
 import com.example.shapeolorpp.utills.Constanse
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
@@ -26,7 +30,29 @@ class StickerFragment : BottomSheetDialogFragment(), StickerAdapter.ImageTouchLi
 
     private lateinit var binding: FragmentStickerBinding
 
-    private lateinit var listSticker: ArrayList<StickerData>
+    private lateinit var listSticker: ArrayList<Sticker>
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = BottomSheetDialog(requireContext(), theme)
+        dialog.setOnShowListener {
+
+            val bottomSheetDialog = it as BottomSheetDialog
+            val parentLayout =
+                bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            parentLayout?.let { it ->
+                val behaviour = BottomSheetBehavior.from(it)
+                setupFullHeight(it)
+                behaviour.state = BottomSheetBehavior.STATE_EXPANDED
+            }
+        }
+        return dialog
+    }
+
+    private fun setupFullHeight(bottomSheet: View) {
+        val layoutParams = bottomSheet.layoutParams
+        layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
+        bottomSheet.layoutParams = layoutParams
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,7 +85,7 @@ class StickerFragment : BottomSheetDialogFragment(), StickerAdapter.ImageTouchLi
 
     }
 
-    override fun onImageClick(stickerItem: StickerData) {
+    override fun onImageClick(stickerItem: Sticker) {
         val intent = Intent(context, MainActivity::class.java)
         val bundle = Bundle()
 
