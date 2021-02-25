@@ -27,57 +27,6 @@ fun Context.toast(message: Any) =
 
 
 
-/*override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-    val dialog = BottomSheetDialog(requireContext(), theme)
-    dialog.setOnShowListener {
-
-        val bottomSheetDialog = it as BottomSheetDialog
-        val parentLayout =
-            bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-        parentLayout?.let { it ->
-            val behaviour = BottomSheetBehavior.from(it)
-            setupFullHeight(it)
-            behaviour.state = BottomSheetBehavior.STATE_EXPANDED
-        }
-    }
-    return dialog
-
-}
-private fun setupFullHeight(bottomSheet: View) {
-    val layoutParams = bottomSheet.layoutParams
-    layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
-    bottomSheet.layoutParams = layoutParams
-}*/
-
-
-
-/*        val bm = imageSticker?.let { BitmapFactory.decodeResource(resources, it) }
-        imageSticker.let { binding.stickerImage.setImageBitmap(bm) }*/
-
-
-// bitmap
-/*        val bitmap = imageSticker?.let { BitmapFactory.decodeResource(resources, it) }
-        binding.stickerImage.setImageBitmap(bitmap)
-
-        val drawable = ContextCompat.getDrawable(this, R.drawable.ic_edit)
-        drawable?.let{
-           binding.canvasEditor.addDrawableSticker(drawable)
-        }*/
-
-
-
-//        val heartIcon = BitmapStickerIcon(
-//            ContextCompat.getDrawable(this, R.drawable.ic_delete),
-//            BitmapStickerIcon.LEFT_BOTTOM
-//        )
-//        heartIcon.iconEvent = HelloIconEvent()
-
-
-
-//        binding.stickerImage.visibility = View.VISIBLE
-//        imageSticker?.let { binding.stickerImage.setImageResource(it) }
-
-
 
 
 
