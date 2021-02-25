@@ -18,7 +18,7 @@ class LinearAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LinearHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_linear, parent, false)
-        return LinearHolder((view))
+        return LinearHolder(view)
     }
 
     override fun onBindViewHolder(holder: LinearHolder, position: Int) {

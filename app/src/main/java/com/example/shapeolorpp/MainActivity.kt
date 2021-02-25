@@ -16,20 +16,25 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.forEach
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
 import com.example.shapeolorpp.databinding.ActivityMainBinding
+import com.example.shapeolorpp.libs.sticker.*
+import com.example.shapeolorpp.libs.stickerimages.StickerImageView
 import com.example.shapeolorpp.utills.Constanse
 import com.github.siyamed.shapeimageview.RoundedImageView
 
 
+private const val TAG = "MainActivity"
+
 class MainActivity : AppCompatActivity() {
 
+    // view binding
     private lateinit var binding: ActivityMainBinding
 
     // widgets
@@ -50,13 +55,38 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupFrameLayout()
         moveTextAroundScreen()
         navHostSetup()
+        setSticker()
 
+    }
+
+    private fun setSticker() {
+
+        // get resource drawable of sticker from adapter
+        val data = intent.extras
+        val imageSticker = data?.getInt(Constanse.STICKER_KEY)
+
+        if (imageSticker != null) {
+            try {
+
+                val stickerView = StickerImageView(this@MainActivity)
+                stickerView.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        this, imageSticker
+                    )
+                )
+                binding.stickerView.addView(stickerView)
+
+            } catch (e: Exception) {
+//                Log.d(TAG, "getImageFromCollection: error is ${e.message}")
+            }
+        }
 
 
     }
@@ -76,10 +106,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.colorFragment
             )
         )
-
         binding.bootomNav.setupWithNavController(navController)
         setSupportActionBar(binding.toolbar)
-
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
@@ -112,8 +140,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
     }
 
@@ -182,9 +208,12 @@ class MainActivity : AppCompatActivity() {
         startActivityForResult(intent, Constanse.IMAGE_CODE)
     }
 
-    companion object {
-        private const val TAG = "MainActivity"
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
 
 }
+
+

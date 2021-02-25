@@ -71,9 +71,6 @@ class RadialAdapter(
         fun setRadialColor(position: Int)
     }
 
-
-    companion object {
-        private const val TAG = "RadialAdapter"
-    }
-
 }
+
+private const val TAG = "RadialAdapter"

@@ -31,4 +31,12 @@
         <item name="android:progressTint" tools:targetApi="lollipop">#3DBE29</item>
         <item name="android:colorControlActivated" tools:targetApi="lollipop">#EB4D4B</item>
     </style>
+
+    <style name="MyBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/MYBottomSheetStyle</item>
+    </style>
+
+    <style name="MYBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>

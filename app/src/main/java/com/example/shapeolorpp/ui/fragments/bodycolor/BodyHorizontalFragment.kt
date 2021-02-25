@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.BodyHorizontalAdapter
@@ -32,8 +32,8 @@ class BodyHorizontalFragment : Fragment(R.layout.dialog_bodyhorizontal_color),
 
         rvBody?.apply {
             setHasFixedSize(true)
-             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
-//            layoutManager = GridLayoutManager(context,6)
+//             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
+            layoutManager = GridLayoutManager(context,6)
             adapter = adapterBodyColor
         }
     }

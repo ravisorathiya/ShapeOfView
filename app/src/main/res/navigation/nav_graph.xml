@@ -37,7 +37,7 @@
         tools:layout="@layout/dailog_bodyverticle_color" />
     <dialog
         android:id="@+id/editorBottomsheetFragment"
-        android:name="com.example.shapeolorpp.ui.EditorBottomsheetFragment"
+        android:name="com.example.shapeolorpp.ui.EditorBottomSheetFragment"
         android:label="EditorBottomsheetFragment"
         tools:layout="@layout/dialog_root_shit" />
     <fragment
@@ -59,7 +59,7 @@
         android:id="@+id/stickerFragment"
         android:name="com.example.shapeolorpp.ui.StickerFragment"
         android:label="StickerFragment"
-        tools:layout="@layout/sticker_fragment"/>
+        tools:layout="@layout/fragment_sticker"/>
 
 
 </navigation>

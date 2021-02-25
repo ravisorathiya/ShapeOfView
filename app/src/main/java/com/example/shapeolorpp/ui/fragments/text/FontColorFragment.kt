@@ -54,8 +54,7 @@ class FontColorFragment : Fragment(R.layout.fragment_colors), LinearAdapter.OnLi
         binding.rvColor.apply {
             val adapterRadial = RadialAdapter(this@FontColorFragment)
             adapterRadial.submitList(listRadialColor)
-//            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
-             layoutManager = GridLayoutManager(context, 6)
+            layoutManager = GridLayoutManager(context, 6)
             setHasFixedSize(true)
 
             adapter = adapterRadial
@@ -69,10 +68,7 @@ class FontColorFragment : Fragment(R.layout.fragment_colors), LinearAdapter.OnLi
 
 
             linerAdapter.submitList(listOfLinearColor)
-//            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
             layoutManager = GridLayoutManager(context, 6)
-//            layoutManager = GridLayoutManager(activity, 5, GridLayoutManager.VERTICAL, false)
-//            layoutManager = StaggeredGridLayoutManager(5,StaggeredGridLayoutManager.VERTICAL)
             setHasFixedSize(true)
             adapter = linerAdapter
         }

@@ -12,6 +12,8 @@ import com.example.shapeolorpp.models.LinearData
 import com.example.shapeolorpp.utills.LinearColor
 
 
+private const val TAG = "LinearColorFragment"
+
 class LinearColorFragment : Fragment(R.layout.fragement_font_linear),
     LinearAdapter.OnLinearSetColor {
 
@@ -19,12 +21,12 @@ class LinearColorFragment : Fragment(R.layout.fragement_font_linear),
     private lateinit var textWishView: TextView
     private lateinit var listOfLinearColor: ArrayList<LinearData>
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
         textWishView = activity?.findViewById(R.id.text_wish)!!
+
         val paint = textWishView.paint
         val width = paint.measureText(textWishView.text.toString())
         val size = textWishView.textSize
@@ -36,6 +38,7 @@ class LinearColorFragment : Fragment(R.layout.fragement_font_linear),
 
     }
 
+
     private fun setupRecyclerViewLinearColor() {
 
 
@@ -44,20 +47,16 @@ class LinearColorFragment : Fragment(R.layout.fragement_font_linear),
         linearColorRecyclerView.apply {
 
             linerAdapter.submitList(listOfLinearColor)
-//            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
             layoutManager = GridLayoutManager(context, 6)
             setHasFixedSize(true)
             adapter = linerAdapter
         }
     }
 
-
     override fun setLinearColor(position: Int) {
 
         listOfLinearColor.forEachIndexed { index, linearData ->
             if (position == index) {
-
-
                 linearData.circleColor?.let { textWishView.setTextColor(it) }
                 textWishView.paint.shader = linearData.fontShader
 
@@ -65,9 +64,5 @@ class LinearColorFragment : Fragment(R.layout.fragement_font_linear),
         }
 
     }
-
-
-    companion object {
-        private const val TAG = "LinearColorFragment"
-    }
 }
+
