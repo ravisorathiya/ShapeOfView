@@ -1,5 +1,6 @@
 package com.example.shapeolorpp.adapters
 
+import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +9,12 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.shapeofview.data.RadialShade
 import com.example.shapeolorpp.R
 
 class RadialAdapter(
+    private val context: Context,
     private val radialListener: OnRadialSetListener
 ) : ListAdapter<RadialShade, RadialAdapter.RadialHolder>(DifferCallback()) {
 
@@ -30,7 +33,10 @@ class RadialAdapter(
         gradientDrawable?.gradientType = GradientDrawable.RADIAL_GRADIENT
         gradientDrawable?.gradientRadius = 140f
         gradientDrawable?.setGradientCenter(0.50f, 0.50f)
-        holder.circleRadial.setImageDrawable(gradientDrawable)
+
+
+        Glide.with(context).load(gradientDrawable).into(holder.circleRadial)
+//        holder.circleRadial.setImageDrawable(gradientDrawable)
 
     }
 

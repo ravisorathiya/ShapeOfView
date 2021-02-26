@@ -1,5 +1,6 @@
 package com.example.shapeolorpp.ui.fragments.text
 
+import android.graphics.Point
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -20,7 +21,6 @@ class RadialFragment
     private lateinit var listRadialColor: ArrayList<RadialShade>
 
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -29,8 +29,8 @@ class RadialFragment
         val paint = textWishView.paint
         val width = paint.measureText(textWishView.text.toString())
         val size = textWishView.textSize
-
-        listRadialColor = RadialColor.radialColorObj(width, size)
+        val point = Point(textWishView.width, textWishView.height)
+        listRadialColor = RadialColor.radialColorObj(width, point)
 
         setupRadialRecyclerView()
 
@@ -39,12 +39,13 @@ class RadialFragment
 
     private fun setupRadialRecyclerView() {
 
-        val adapterRadial = RadialAdapter(this)
+        val adapterRadial = context?.let { RadialAdapter(it, this) }
         radialRecyclerView = view?.findViewById(R.id.radial_recycler_view)!!
         radialRecyclerView.apply {
 
-            adapterRadial.submitList(listRadialColor)
+            adapterRadial?.submitList(listRadialColor)
             layoutManager = GridLayoutManager(context, 6)
+            isNestedScrollingEnabled = true
             setHasFixedSize(true)
             adapter = adapterRadial
         }
@@ -55,15 +56,10 @@ class RadialFragment
         listRadialColor.forEachIndexed { index, radialData ->
 
             if (position == index) {
-
                 radialData.circleColor?.let { textWishView.setTextColor(it) }
                 textWishView.paint.shader = radialData.fontRadialShader
-
             }
-
-
         }
     }
-
 
 }

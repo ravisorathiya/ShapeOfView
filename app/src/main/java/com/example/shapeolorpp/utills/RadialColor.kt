@@ -1,6 +1,7 @@
 package com.example.shapeolorpp.utills
 
 import android.graphics.Color
+import android.graphics.Point
 import android.graphics.RadialGradient
 import android.graphics.Shader
 import android.graphics.drawable.GradientDrawable
@@ -10,15 +11,19 @@ import com.example.shapeofview.data.RadialShade
 object RadialColor {
 
 
-    fun radialColorObj(width: Float, size: Float): ArrayList<RadialShade> {
+    fun radialColorObj(width: Float, size: Point): ArrayList<RadialShade> {
         val fontRadialColor =
             arrayListOf(
                 RadialShade(
                     RadialGradient(
-                        5f, 3f, 200f,
-                        Color.parseColor("#AF9D5A"),
-                        Color.parseColor("#50DBB4"),
-                        Shader.TileMode.MIRROR
+                        size.y.toFloat(), size.y.toFloat(), size.y.toFloat(),
+                        intArrayOf(
+                            Color.parseColor("#AF9D5A"),
+                            Color.parseColor("#50DBB4")
+
+                            ),
+                        null,
+                        Shader.TileMode.REPEAT
                     ),
                     GradientDrawable(
                         GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(

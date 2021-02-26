@@ -3,6 +3,7 @@ package com.example.shapeolorpp.libs.stickerimages;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -14,8 +15,9 @@ import com.example.shapeolorpp.libs.stickerimages.util.AutoResizeTextView;
 /**
  * Created by cheungchingai on 6/15/15.
  */
-public class StickerTextView extends StickerView{
+public class StickerTextView extends StickerView {
     private AutoResizeTextView tv_main;
+
     public StickerTextView(Context context) {
         super(context);
     }
@@ -30,7 +32,7 @@ public class StickerTextView extends StickerView{
 
     @Override
     public View getMainView() {
-        if(tv_main != null)
+        if (tv_main != null)
             return tv_main;
 
         tv_main = new AutoResizeTextView(getContext());
@@ -46,26 +48,34 @@ public class StickerTextView extends StickerView{
         );
         params.gravity = Gravity.CENTER;
         tv_main.setLayoutParams(params);
-        if(getImageViewFlip()!=null)
+        if (getImageViewFlip() != null)
             getImageViewFlip().setVisibility(View.GONE);
         return tv_main;
     }
 
-    public void setText(String text){
-        if(tv_main!=null)
+    public void setText(String text) {
+        if (tv_main != null)
             tv_main.setText(text);
+
     }
 
-    public String getText(){
-        if(tv_main!=null)
+    public String getText() {
+        if (tv_main != null)
             return tv_main.getText().toString();
 
         return null;
     }
 
+    public void setShader(Shader shader) {
+        if (tv_main != null) {
+            tv_main.getPaint().getShader();
+        }
+
+    }
+
     public static float pixelsToSp(Context context, float px) {
         float scaledDensity = context.getResources().getDisplayMetrics().scaledDensity;
-        return px/scaledDensity;
+        return px / scaledDensity;
     }
 
     @Override

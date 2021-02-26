@@ -23,9 +23,9 @@ class BackColorHFragment : Fragment(R.layout.dialog_bodyhorizontal_color),
     }
 
     private fun setupRecylcleBodyColor() {
-        val adapterBodyColor = BackColorHAdapter(this)
+        val adapterBodyColor = context?.let { BackColorHAdapter(it, this) }
         listBodyColor = BodyHorizontal.colorCollector()
-        adapterBodyColor.submitList(listBodyColor)
+        adapterBodyColor?.submitList(listBodyColor)
 
         val rvBody = view?.findViewById<RecyclerView>(R.id.rv_back_color)
 

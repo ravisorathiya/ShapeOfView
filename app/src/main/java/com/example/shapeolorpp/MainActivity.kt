@@ -28,6 +28,7 @@ import com.example.shapeolorpp.libs.sticker.*
 import com.example.shapeolorpp.libs.stickerimages.StickerImageView
 import com.example.shapeolorpp.utills.Constanse
 import com.github.siyamed.shapeimageview.RoundedImageView
+import kotlinx.android.synthetic.main.frame_item.view.*
 
 
 private const val TAG = "MainActivity"
@@ -49,7 +50,6 @@ class MainActivity : AppCompatActivity() {
     // navigation components
     private lateinit var navController: NavController
     lateinit var appBarConfiguration: AppBarConfiguration
-
 
     @RequiresApi(Build.VERSION_CODES.P)
     @SuppressLint("ClickableViewAccessibility")
@@ -87,7 +87,6 @@ class MainActivity : AppCompatActivity() {
 //                Log.d(TAG, "getImageFromCollection: error is ${e.message}")
             }
         }
-
 
     }
 

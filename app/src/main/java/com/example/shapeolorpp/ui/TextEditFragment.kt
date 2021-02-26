@@ -16,17 +16,18 @@ class TextEditFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding: DialogRootShitBinding
 
+//    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+//
+//        return super.onCreateDialog(savedInstanceState).apply {
+//
+//            setOnShowListener {
+//                val bottomSheet =
+//                    findViewById<View>(com.google.android.material.R.id.design_bottom_sheet) as FrameLayout
+//                  bottomSheet.setBackgroundResource(android.R.color.transparent)
+//            }
+//        }
+//    }
 
-    /*  override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-
-          return super.onCreateDialog(savedInstanceState).apply {
-
-              setOnShowListener {
-                  val bottomSheet = findViewById<View>(com.google.android.material.R.id.design_bottom_sheet) as FrameLayout
-                  bottomSheet.setBackgroundResource(android.R.color.transparent)
-              }
-          }
-      }*/
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,7 +41,6 @@ class TextEditFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = DialogRootShitBinding.bind(view)
-
         setupTabViewPager()
 
 

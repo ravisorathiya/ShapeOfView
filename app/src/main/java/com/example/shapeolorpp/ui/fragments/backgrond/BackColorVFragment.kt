@@ -23,11 +23,11 @@ class BackColorVFragment : Fragment(R.layout.dailog_bodyverticle_color),
 
     private fun setupRecylcleBodyColor() {
         val rvVentricle = view?.findViewById<RecyclerView>(R.id.rv_verticle_body_color)
-        val ventricleAdapter = BackColorVAdapter(this)
+        val ventricleAdapter = context?.let { BackColorVAdapter(it, this) }
         rvVentricle?.setHasFixedSize(true)
         listVentricleColor = BodyVerticle.verticleColor()
-        BackColorVAdapter(this)
-        ventricleAdapter.submitList(listVentricleColor)
+//        BackColorVAdapter(this)
+        ventricleAdapter?.submitList(listVentricleColor)
         rvVentricle?.layoutManager = GridLayoutManager(context, 6)
         rvVentricle?.adapter = ventricleAdapter
     }

@@ -23,7 +23,15 @@ object CanvasImages {
             Sticker(R.drawable.stick12),
             Sticker(R.drawable.stick13),
             Sticker(R.drawable.stcik14),
-            Sticker(R.drawable.stcik15)
+            Sticker(R.drawable.stcik15),
+            Sticker(R.drawable.stick_16),
+            Sticker(R.drawable.stick_17),
+            Sticker(R.drawable.stick_18),
+            Sticker(R.drawable.stick_19),
+            Sticker(R.drawable.stick_20),
+            Sticker(R.drawable.stick_21),
+            Sticker(R.drawable.stick_22),
+            Sticker(R.drawable.stick_23)
 
         )
 

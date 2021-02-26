@@ -155,6 +155,7 @@ public abstract class StickerView extends FrameLayout {
             requestLayout();
         });
         this.iv_gone.setOnClickListener(v -> {
+
             setControlItemsHidden(true);
         });
     }

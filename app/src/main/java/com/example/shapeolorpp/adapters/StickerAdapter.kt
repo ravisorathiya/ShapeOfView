@@ -1,15 +1,18 @@
 package com.example.shapeolorpp.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.shapeolorpp.databinding.ItemStickerBinding
 import com.example.shapeolorpp.models.Sticker
 
+
 class StickerAdapter(
+    private val context: Context,
     private val listener: ImageTouchListner
 ) : ListAdapter<Sticker, StickerAdapter.StickerHolder>(DiffCallBack()) {
 
@@ -33,7 +36,6 @@ class StickerAdapter(
                     if (position != RecyclerView.NO_POSITION) {
                         val current = getItem(position)
                         listener.onImageClick(current)
-                        Toast.makeText(it.context, "$position", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -42,9 +44,7 @@ class StickerAdapter(
 
         fun bind(currentItem: Sticker?) {
             val data = currentItem?.sticker
-            if (data != null) {
-                item.imageSticker.setImageResource(data)
-            }
+            data?.let { Glide.with(context).load(it).into(item.imageSticker) }
         }
 
     }

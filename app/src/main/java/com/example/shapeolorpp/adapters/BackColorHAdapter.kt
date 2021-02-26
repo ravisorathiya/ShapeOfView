@@ -1,5 +1,6 @@
 package com.example.shapeolorpp.adapters
 
+import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +9,12 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.models.BackColorH
 
 class BackColorHAdapter(
+    private val context: Context,
     private val listenBody: OnBodyColorClick
 ) : ListAdapter<BackColorH, BackColorHAdapter.BodyHorizontalColorHolder>(DifferCallback()) {
 
@@ -24,11 +27,14 @@ class BackColorHAdapter(
     override fun onBindViewHolder(holder: BodyHorizontalColorHolder, position: Int) {
         val currentItem = getItem(position)
 
-       val  gradBody = currentItem.radialDrawable
+        val gradBody = currentItem.radialDrawable
         gradBody?.gradientType = GradientDrawable.LINEAR_GRADIENT
         gradBody?.gradientRadius = 140f
         gradBody?.setGradientCenter(0.50f, 0.50f)
-        holder.imagecircle.setImageDrawable(gradBody)
+
+
+        Glide.with(context).load(gradBody).into(holder.imagecircle)
+//        holder.imagecircle.setImageDrawable(gradBody)
 
     }
 
@@ -40,7 +46,7 @@ class BackColorHAdapter(
 
             imagecircle.setOnClickListener {
                 val position = adapterPosition
-                if (position!=RecyclerView.NO_POSITION){
+                if (position != RecyclerView.NO_POSITION) {
                     listenBody.changeBodyColor(position)
                 }
             }

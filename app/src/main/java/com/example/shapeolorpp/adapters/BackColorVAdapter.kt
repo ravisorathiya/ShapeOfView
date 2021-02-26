@@ -1,5 +1,6 @@
 package com.example.shapeolorpp.adapters
 
+import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +9,12 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.models.BackColorV
 
 class BackColorVAdapter(
+    private val context:Context,
     private val verticleColorlist: VerticleColorSet
 ) : ListAdapter<BackColorV, BackColorVAdapter.BodyColorVerticleHolder>(
     DifferCallback()
@@ -30,7 +33,10 @@ class BackColorVAdapter(
         gradint?.gradientType = GradientDrawable.LINEAR_GRADIENT
         gradint?.gradientRadius = 140f
         gradint?.setGradientCenter(0.50f, 0.50f)
-        holder.imagecircle.setImageDrawable(gradint)
+
+
+        Glide.with(context).load(gradint).into(holder.imagecircle)
+//        holder.imagecircle.setImageDrawable(gradint)
     }
 
     inner class BodyColorVerticleHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

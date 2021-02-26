@@ -42,11 +42,11 @@ class LinearColorFragment : Fragment(R.layout.fragement_font_linear),
     private fun setupRecyclerViewLinearColor() {
 
 
-        val linerAdapter = LinearAdapter(this)
+        val linerAdapter = context?.let { LinearAdapter(it, this) }
         linearColorRecyclerView = view?.findViewById(R.id.rv_linear)!!
         linearColorRecyclerView.apply {
 
-            linerAdapter.submitList(listOfLinearColor)
+            linerAdapter?.submitList(listOfLinearColor)
             layoutManager = GridLayoutManager(context, 6)
             setHasFixedSize(true)
             adapter = linerAdapter
@@ -58,6 +58,7 @@ class LinearColorFragment : Fragment(R.layout.fragement_font_linear),
         listOfLinearColor.forEachIndexed { index, linearData ->
             if (position == index) {
                 linearData.circleColor?.let { textWishView.setTextColor(it) }
+
                 textWishView.paint.shader = linearData.fontShader
 
             }

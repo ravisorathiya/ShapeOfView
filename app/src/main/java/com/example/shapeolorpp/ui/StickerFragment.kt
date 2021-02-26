@@ -66,17 +66,18 @@ class StickerFragment : BottomSheetDialogFragment(), StickerAdapter.ImageTouchLi
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentStickerBinding.bind(view)
 
-        val stickerAdapter = StickerAdapter(this)
+        val stickerAdapter = context?.let { StickerAdapter(it, this) }
 
         listSticker = CanvasImages.imageCanvas()
 
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             withContext(IO) {
-                stickerAdapter.submitList(listSticker)
+                stickerAdapter?.submitList(listSticker)
             }
+
             binding.rvSticker.apply {
                 layoutManager = GridLayoutManager(context, 3)
-
+                stickerAdapter?.itemCount?.let { setItemViewCacheSize(it) }
                 setHasFixedSize(true)
                 adapter = stickerAdapter
             }

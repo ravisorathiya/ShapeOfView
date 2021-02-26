@@ -1,5 +1,6 @@
 package com.example.shapeolorpp.ui.fragments.text
 
+import android.graphics.Point
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -41,8 +42,9 @@ class FontColorFragment : Fragment(R.layout.fragment_colors), LinearAdapter.OnLi
         val paint = textWishView.paint
         val width = paint.measureText(textWishView.text.toString())
         val size = textWishView.textSize
+        val point = Point(textWishView.width,textWishView.height)
         listOfLinearColor = LinearColor.colorCollector(width, size)
-        listRadialColor = RadialColor.radialColorObj(width, size)
+        listRadialColor = RadialColor.radialColorObj(width, point)
 
 
         setupRecyclerViewLinear()
@@ -52,7 +54,7 @@ class FontColorFragment : Fragment(R.layout.fragment_colors), LinearAdapter.OnLi
 
     private fun setupRecyclerViewGradient() {
         binding.rvColor.apply {
-            val adapterRadial = RadialAdapter(this@FontColorFragment)
+            val adapterRadial = RadialAdapter(context , this@FontColorFragment)
             adapterRadial.submitList(listRadialColor)
             layoutManager = GridLayoutManager(context, 6)
             setHasFixedSize(true)
@@ -62,12 +64,12 @@ class FontColorFragment : Fragment(R.layout.fragment_colors), LinearAdapter.OnLi
     }
 
     private fun setupRecyclerViewLinear() {
-        val linerAdapter = LinearAdapter(this)
+        val linerAdapter = context?.let { LinearAdapter(it, this) }
 
         binding.rvColor.apply {
 
 
-            linerAdapter.submitList(listOfLinearColor)
+            linerAdapter?.submitList(listOfLinearColor)
             layoutManager = GridLayoutManager(context, 6)
             setHasFixedSize(true)
             adapter = linerAdapter
