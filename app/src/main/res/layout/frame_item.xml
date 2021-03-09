@@ -12,7 +12,7 @@
     <com.github.siyamed.shapeimageview.RoundedImageView
         android:id="@+id/image_first"
         android:layout_width="222dp"
-        android:layout_height="135dp"
+        android:layout_height="140dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/plus"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
     <com.github.siyamed.shapeimageview.RoundedImageView
         android:id="@+id/image_second"
         android:layout_width="210dp"
-        android:layout_height="130dp"
+        android:layout_height="140dp"
         android:layout_marginStart="64dp"
         android:src="@drawable/plus"
         app:layout_constraintBottom_toBottomOf="@+id/image_first"
@@ -42,7 +42,7 @@
     <com.github.siyamed.shapeimageview.RoundedImageView
         android:id="@+id/image_third"
         android:layout_width="240dp"
-        android:layout_height="135dp"
+        android:layout_height="140dp"
         android:layout_marginTop="100dp"
         android:src="@drawable/plus"
         app:layout_constraintEnd_toEndOf="@+id/image_first"

@@ -1,13 +1,11 @@
 package com.example.shapeolorpp
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
-import android.graphics.ImageDecoder
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -18,16 +16,22 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.view.forEach
+import androidx.core.view.forEachIndexed
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.createDataStore
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
+import com.bumptech.glide.Glide
 import com.example.shapeolorpp.databinding.ActivityMainBinding
 import com.example.shapeolorpp.libs.sticker.*
 import com.example.shapeolorpp.libs.stickerimages.StickerImageView
 import com.example.shapeolorpp.utills.Constanse
 import com.github.siyamed.shapeimageview.RoundedImageView
+import com.theartofdev.edmodo.cropper.CropImage
+import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.frame_item.view.*
 
 
@@ -51,6 +55,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     lateinit var appBarConfiguration: AppBarConfiguration
 
+    var bitmap: Bitmap? = null
+
+
+    private lateinit var dataStore: DataStore<Preferences>
+
+
     @RequiresApi(Build.VERSION_CODES.P)
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,12 +69,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        dataStore = createDataStore(name = "settings")
+
         setupFrameLayout()
         moveTextAroundScreen()
         navHostSetup()
         setSticker()
+        setFilterImage()
+
 
     }
+
 
     private fun setSticker() {
 
@@ -150,61 +165,57 @@ class MainActivity : AppCompatActivity() {
             frameLayout,
             false
         )
-
-        val rootLayout = framView
-        if (rootLayout is ConstraintLayout) {
-
-            rootLayout.forEach {
-                val id = resources.getResourceEntryName(it.id)
-                val dynamicId = resources.getIdentifier(id, "id", packageName)
-
-                if (it is RoundedImageView) {
-                    it.setOnClickListener {
-                        roundedImageView = findViewById(dynamicId)
-                        openGallery()
-                    }
-                }
-
-            }
-
-        }
-
         frameLayout.addView(framView)
 
+    }
 
+    // click image dynamically without findViewById for each image
+    private fun setFilterImage() {
+        val root = framView
+        if (root is ConstraintLayout) {
+            root.forEachIndexed { index, view ->
+                val id = resources.getResourceEntryName(view.id)
+                val dynamicId = resources.getIdentifier(id, "id", packageName)
+                if (view is RoundedImageView) {
+                    view.setOnClickListener {
+                        roundedImageView = findViewById(dynamicId)
+                        cropImage()
+                    }
+                }
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == Constanse.IMAGE_CODE) {
 
-            imageURI = data?.data!!
-            try {
-                imageURI.let {
-                    if (Build.VERSION.SDK_INT < 28) {
-                        val bitmap = MediaStore.Images.Media.getBitmap(
-                            this.contentResolver,
-                            imageURI
-                        )
-                        roundedImageView.setImageBitmap(bitmap)
-                    } else {
-                        val source =
-                            ImageDecoder.createSource(this.contentResolver, imageURI)
-                        val bitmap = ImageDecoder.decodeBitmap(source)
-                        roundedImageView.setImageBitmap(bitmap)
+        // crop a image and sent to filter activity
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            val result = CropImage.getActivityResult(data)
+            if (resultCode === RESULT_OK) {
 
-                    }
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
+                val result = CropImage.getActivityResult(data)
+                imageURI = result.uri
+                val intent = Intent(this, FilterActivity::class.java)
+                val bundle = Bundle()
+                bundle.putString(Constanse.IMAGE_URI, imageURI.toString())
+                intent.putExtras(bundle)
+                startActivityForResult(intent, Constanse.FILTER_REQUEST_CODE)
+
+            } else if (resultCode === CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                val error = result.error
             }
         }
-    }
 
-    private fun openGallery() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent, Constanse.IMAGE_CODE)
+        // set a filtered image in roundimageview
+        if (resultCode == Constanse.FILTER_IMAGE_CODE) {
+            if (requestCode == Constanse.FILTER_REQUEST_CODE && data != null) {
+
+                val data = data.getStringExtra(Constanse.FILTER_IMAGE)
+                imageURI = Uri.parse(data)
+                Glide.with(this).load(imageURI).into(roundedImageView)
+            }
+        }
     }
 
     override fun onBackPressed() {
@@ -212,6 +223,11 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 
+    private fun cropImage() {
+        CropImage.activity()
+            .setGuidelines(CropImageView.Guidelines.ON)
+            .start(this)
+    }
 
 }
 

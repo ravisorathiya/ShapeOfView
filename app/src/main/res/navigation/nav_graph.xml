@@ -49,17 +49,23 @@
         android:id="@+id/fontSpacerFragment"
         android:name="com.example.shapeolorpp.ui.fragments.text.FontSpacerFragment"
         android:label="FontSpacerFragment"
-        tools:layout="@layout/fragment_fontspacer"/>
+        tools:layout="@layout/fragment_fontspacer" />
     <dialog
         android:id="@+id/bodyColorFragment"
         android:name="com.example.shapeolorpp.ui.BackColorFragment"
         android:label="BodyColorFragment"
-        tools:layout="@layout/bottomshit_body"/>
+        tools:layout="@layout/bottomshit_body" />
     <dialog
         android:id="@+id/stickerFragment"
         android:name="com.example.shapeolorpp.ui.StickerFragment"
         android:label="StickerFragment"
-        tools:layout="@layout/fragment_sticker"/>
+        tools:layout="@layout/fragment_sticker" />
+    <fragment
+        android:id="@+id/sweepFragment"
+        android:name="com.example.shapeolorpp.ui.fragments.text.SweepFragment"
+        android:label="SweepFragment"
+        tools:layout="@layout/fragment_sweepter" />
+
 
 
 </navigation>

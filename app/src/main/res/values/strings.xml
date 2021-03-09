@@ -4,4 +4,15 @@
     <string name="font_style">Font Style</string>
     <string name="colors">Colors</string>
     <string name="stickers">Stickers</string>
+    <string name="Filters">Filters</string>
+
+
+    <string-array name="color">
+        <item>Linear</item>
+        <item>Radial</item>
+        <item>Sweep</item>
+
+    </string-array>
+
+
 </resources>
