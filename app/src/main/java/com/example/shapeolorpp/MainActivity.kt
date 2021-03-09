@@ -2,7 +2,6 @@ package com.example.shapeolorpp
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -17,9 +16,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.forEachIndexed
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.createDataStore
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -28,6 +24,7 @@ import com.bumptech.glide.Glide
 import com.example.shapeolorpp.databinding.ActivityMainBinding
 import com.example.shapeolorpp.libs.sticker.*
 import com.example.shapeolorpp.libs.stickerimages.StickerImageView
+import com.example.shapeolorpp.ui.StickerFragment
 import com.example.shapeolorpp.utills.Constanse
 import com.github.siyamed.shapeimageview.RoundedImageView
 import com.theartofdev.edmodo.cropper.CropImage
@@ -37,7 +34,7 @@ import kotlinx.android.synthetic.main.frame_item.view.*
 
 private const val TAG = "MainActivity"
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), StickerFragment.setOnStickerListener {
 
     // view binding
     private lateinit var binding: ActivityMainBinding
@@ -55,11 +52,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     lateinit var appBarConfiguration: AppBarConfiguration
 
-    var bitmap: Bitmap? = null
-
-
-    private lateinit var dataStore: DataStore<Preferences>
-
 
     @RequiresApi(Build.VERSION_CODES.P)
     @SuppressLint("ClickableViewAccessibility")
@@ -69,39 +61,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        dataStore = createDataStore(name = "settings")
-
         setupFrameLayout()
         moveTextAroundScreen()
         navHostSetup()
-        setSticker()
         setFilterImage()
-
-
-    }
-
-
-    private fun setSticker() {
-
-        // get resource drawable of sticker from adapter
-        val data = intent.extras
-        val imageSticker = data?.getInt(Constanse.STICKER_KEY)
-
-        if (imageSticker != null) {
-            try {
-
-                val stickerView = StickerImageView(this@MainActivity)
-                stickerView.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        this, imageSticker
-                    )
-                )
-                binding.stickerView.addView(stickerView)
-
-            } catch (e: Exception) {
-//                Log.d(TAG, "getImageFromCollection: error is ${e.message}")
-            }
-        }
 
     }
 
@@ -169,6 +132,21 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun setSticker(stickerRef: Int) {
+        try {
+            val stickerView = StickerImageView(this@MainActivity)
+            stickerView.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this, stickerRef
+                )
+            )
+            binding.stickerView.addView(stickerView)
+
+        } catch (e: Exception) {
+            //  Log.d(TAG, "getImageFromCollection: error is ${e.message}")
+        }
+    }
+
     // click image dynamically without findViewById for each image
     private fun setFilterImage() {
         val root = framView
@@ -216,6 +194,8 @@ class MainActivity : AppCompatActivity() {
                 Glide.with(this).load(imageURI).into(roundedImageView)
             }
         }
+
+
     }
 
     override fun onBackPressed() {
@@ -228,6 +208,7 @@ class MainActivity : AppCompatActivity() {
             .setGuidelines(CropImageView.Guidelines.ON)
             .start(this)
     }
+
 
 }
 

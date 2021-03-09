@@ -1,22 +1,19 @@
 package com.example.shapeolorpp.ui
 
 import android.app.Dialog
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.shapeolorpp.MainActivity
 import com.example.shapeolorpp.R
 import com.example.shapeolorpp.adapters.StickerAdapter
 import com.example.shapeolorpp.databinding.FragmentStickerBinding
 import com.example.shapeolorpp.models.Sticker
 import com.example.shapeolorpp.utills.CanvasImages
-import com.example.shapeolorpp.utills.Constanse
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -29,11 +26,23 @@ private const val TAG = "StickerFragment"
 class StickerFragment : BottomSheetDialogFragment(), StickerAdapter.ImageTouchListner {
 
     private lateinit var binding: FragmentStickerBinding
-
     private lateinit var listSticker: ArrayList<Sticker>
+    private lateinit var dialog : BottomSheetDialog
+
+    private  var sticker : setOnStickerListener? = null
+
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            sticker  = activity as setOnStickerListener
+        } catch (e: ClassCastException) {
+            throw java.lang.ClassCastException(activity.toString())
+        }
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = BottomSheetDialog(requireContext(), theme)
+        dialog = BottomSheetDialog(requireContext(), theme)
         dialog.setOnShowListener {
 
             val bottomSheetDialog = it as BottomSheetDialog
@@ -87,16 +96,13 @@ class StickerFragment : BottomSheetDialogFragment(), StickerAdapter.ImageTouchLi
     }
 
     override fun onImageClick(stickerItem: Sticker) {
-        val intent = Intent(context, MainActivity::class.java)
-        val bundle = Bundle()
 
-        stickerItem.sticker?.let { bundle.putInt(Constanse.STICKER_KEY, stickerItem.sticker) }
+        stickerItem.sticker?.let { sticker?.setSticker(it) }
+        dialog.dismiss()
+    }
 
-        intent.putExtras(bundle)
-        findNavController().popBackStack()
-        startActivity(intent)
-        activity?.finish()
-
+    interface setOnStickerListener {
+        fun setSticker(stickerRef : Int)
     }
 
 

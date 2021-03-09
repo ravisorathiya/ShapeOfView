@@ -59,7 +59,9 @@
         android:id="@+id/stickerFragment"
         android:name="com.example.shapeolorpp.ui.StickerFragment"
         android:label="StickerFragment"
-        tools:layout="@layout/fragment_sticker" />
+        tools:layout="@layout/fragment_sticker" >
+
+    </dialog>
     <fragment
         android:id="@+id/sweepFragment"
         android:name="com.example.shapeolorpp.ui.fragments.text.SweepFragment"
